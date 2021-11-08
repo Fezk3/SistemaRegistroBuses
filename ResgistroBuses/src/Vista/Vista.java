@@ -28,18 +28,140 @@ public class Vista extends javax.swing.JFrame {
     private void initComponents() {
 
         panelPrincipal = new javax.swing.JPanel();
+        panelBuses = new javax.swing.JPanel();
+        panelInfoBus = new javax.swing.JPanel();
+        panelInfoRutas = new javax.swing.JPanel();
+        panelEncomiendas = new javax.swing.JPanel();
+        panelCompraTicket = new javax.swing.JPanel();
+        panelInfoTickets = new javax.swing.JPanel();
+        panelAdmin = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        panelBuses.setBackground(new java.awt.Color(51, 0, 204));
+
+        javax.swing.GroupLayout panelBusesLayout = new javax.swing.GroupLayout(panelBuses);
+        panelBuses.setLayout(panelBusesLayout);
+        panelBusesLayout.setHorizontalGroup(
+            panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 454, Short.MAX_VALUE)
+        );
+        panelBusesLayout.setVerticalGroup(
+            panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        panelInfoBus.setBackground(new java.awt.Color(204, 204, 0));
+
+        javax.swing.GroupLayout panelInfoBusLayout = new javax.swing.GroupLayout(panelInfoBus);
+        panelInfoBus.setLayout(panelInfoBusLayout);
+        panelInfoBusLayout.setHorizontalGroup(
+            panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelInfoBusLayout.setVerticalGroup(
+            panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 323, Short.MAX_VALUE)
+        );
+
+        panelInfoRutas.setBackground(new java.awt.Color(0, 0, 0));
+
+        javax.swing.GroupLayout panelInfoRutasLayout = new javax.swing.GroupLayout(panelInfoRutas);
+        panelInfoRutas.setLayout(panelInfoRutasLayout);
+        panelInfoRutasLayout.setHorizontalGroup(
+            panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 596, Short.MAX_VALUE)
+        );
+        panelInfoRutasLayout.setVerticalGroup(
+            panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        panelEncomiendas.setBackground(new java.awt.Color(255, 51, 51));
+
+        javax.swing.GroupLayout panelEncomiendasLayout = new javax.swing.GroupLayout(panelEncomiendas);
+        panelEncomiendas.setLayout(panelEncomiendasLayout);
+        panelEncomiendasLayout.setHorizontalGroup(
+            panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelEncomiendasLayout.setVerticalGroup(
+            panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        panelCompraTicket.setBackground(new java.awt.Color(0, 204, 153));
+
+        javax.swing.GroupLayout panelCompraTicketLayout = new javax.swing.GroupLayout(panelCompraTicket);
+        panelCompraTicket.setLayout(panelCompraTicketLayout);
+        panelCompraTicketLayout.setHorizontalGroup(
+            panelCompraTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 410, Short.MAX_VALUE)
+        );
+        panelCompraTicketLayout.setVerticalGroup(
+            panelCompraTicketLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 283, Short.MAX_VALUE)
+        );
+
+        panelInfoTickets.setBackground(new java.awt.Color(0, 153, 153));
+
+        javax.swing.GroupLayout panelInfoTicketsLayout = new javax.swing.GroupLayout(panelInfoTickets);
+        panelInfoTickets.setLayout(panelInfoTicketsLayout);
+        panelInfoTicketsLayout.setHorizontalGroup(
+            panelInfoTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelInfoTicketsLayout.setVerticalGroup(
+            panelInfoTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
+        );
+
+        panelAdmin.setBackground(new java.awt.Color(255, 153, 255));
+
+        javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
+        panelAdmin.setLayout(panelAdminLayout);
+        panelAdminLayout.setHorizontalGroup(
+            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        panelAdminLayout.setVerticalGroup(
+            panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1472, Short.MAX_VALUE)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelBuses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelInfoBus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelCompraTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelInfoTickets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelInfoRutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelEncomiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 854, Short.MAX_VALUE)
+            .addGroup(panelPrincipalLayout.createSequentialGroup()
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelPrincipalLayout.createSequentialGroup()
+                        .addComponent(panelCompraTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(panelInfoTickets, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelInfoRutas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelBuses, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelInfoBus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelEncomiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -92,6 +214,13 @@ public class Vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel panelAdmin;
+    private javax.swing.JPanel panelBuses;
+    private javax.swing.JPanel panelCompraTicket;
+    private javax.swing.JPanel panelEncomiendas;
+    private javax.swing.JPanel panelInfoBus;
+    private javax.swing.JPanel panelInfoRutas;
+    private javax.swing.JPanel panelInfoTickets;
     private javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
 }
