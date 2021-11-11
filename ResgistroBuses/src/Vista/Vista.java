@@ -38,7 +38,7 @@ public class Vista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelBuses.setBackground(new java.awt.Color(51, 0, 204));
+        panelBuses.setBackground(new java.awt.Color(153, 153, 255));
 
         javax.swing.GroupLayout panelBusesLayout = new javax.swing.GroupLayout(panelBuses);
         panelBuses.setLayout(panelBusesLayout);
