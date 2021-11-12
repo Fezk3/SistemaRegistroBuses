@@ -30,6 +30,13 @@ public class Vista extends javax.swing.JFrame {
         panelPrincipal = new javax.swing.JPanel();
         panelBuses = new javax.swing.JPanel();
         panelInfoBus = new javax.swing.JPanel();
+        etiquetaInfoBus = new javax.swing.JLabel();
+        etiquetaNBus = new javax.swing.JLabel();
+        etiquetaChod = new javax.swing.JLabel();
+        etiquetaNombreChofer = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaAsientos = new javax.swing.JTable();
+        etiquetaAsientos = new javax.swing.JLabel();
         panelInfoRutas = new javax.swing.JPanel();
         panelEncomiendas = new javax.swing.JPanel();
         panelCompraTicket = new javax.swing.JPanel();
@@ -44,24 +51,84 @@ public class Vista extends javax.swing.JFrame {
         panelBuses.setLayout(panelBusesLayout);
         panelBusesLayout.setHorizontalGroup(
             panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
+            .addGap(0, 462, Short.MAX_VALUE)
         );
         panelBusesLayout.setVerticalGroup(
             panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        panelInfoBus.setBackground(new java.awt.Color(204, 204, 0));
+        panelInfoBus.setBackground(new java.awt.Color(0, 153, 255));
+
+        etiquetaInfoBus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaInfoBus.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaInfoBus.setText("Info del Bus: ");
+
+        etiquetaChod.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaChod.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaChod.setText("Chofer:");
+
+        tablaAsientos.setForeground(new java.awt.Color(255, 255, 255));
+        tablaAsientos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablaAsientos);
+
+        etiquetaAsientos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaAsientos.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaAsientos.setText("Listado de asientos ");
 
         javax.swing.GroupLayout panelInfoBusLayout = new javax.swing.GroupLayout(panelInfoBus);
         panelInfoBus.setLayout(panelInfoBusLayout);
         panelInfoBusLayout.setHorizontalGroup(
             panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelInfoBusLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(etiquetaInfoBus, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(etiquetaNBus, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(etiquetaChod, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(etiquetaNombreChofer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(13, 13, 13))
+            .addGroup(panelInfoBusLayout.createSequentialGroup()
+                .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInfoBusLayout.createSequentialGroup()
+                        .addGap(47, 47, 47)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelInfoBusLayout.createSequentialGroup()
+                        .addGap(160, 160, 160)
+                        .addComponent(etiquetaAsientos)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelInfoBusLayout.setVerticalGroup(
             panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 323, Short.MAX_VALUE)
+            .addGroup(panelInfoBusLayout.createSequentialGroup()
+                .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInfoBusLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(etiquetaInfoBus)
+                            .addComponent(etiquetaNBus, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(panelInfoBusLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(etiquetaChod)
+                            .addComponent(etiquetaNombreChofer, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(etiquetaAsientos)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         panelInfoRutas.setBackground(new java.awt.Color(0, 0, 0));
@@ -70,11 +137,11 @@ public class Vista extends javax.swing.JFrame {
         panelInfoRutas.setLayout(panelInfoRutasLayout);
         panelInfoRutasLayout.setHorizontalGroup(
             panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+            .addGap(0, 588, Short.MAX_VALUE)
         );
         panelInfoRutasLayout.setVerticalGroup(
             panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 541, Short.MAX_VALUE)
         );
 
         panelEncomiendas.setBackground(new java.awt.Color(255, 51, 51));
@@ -113,7 +180,7 @@ public class Vista extends javax.swing.JFrame {
         );
         panelInfoTicketsLayout.setVerticalGroup(
             panelInfoTicketsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 236, Short.MAX_VALUE)
+            .addGap(0, 252, Short.MAX_VALUE)
         );
 
         panelAdmin.setBackground(new java.awt.Color(255, 153, 255));
@@ -214,6 +281,12 @@ public class Vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel etiquetaAsientos;
+    private javax.swing.JLabel etiquetaChod;
+    private javax.swing.JLabel etiquetaInfoBus;
+    private javax.swing.JLabel etiquetaNBus;
+    private javax.swing.JLabel etiquetaNombreChofer;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
     private javax.swing.JPanel panelCompraTicket;
@@ -222,5 +295,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel panelInfoRutas;
     private javax.swing.JPanel panelInfoTickets;
     private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JTable tablaAsientos;
     // End of variables declaration//GEN-END:variables
 }
