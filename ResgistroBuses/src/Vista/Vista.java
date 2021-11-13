@@ -47,6 +47,25 @@ public class Vista extends javax.swing.JFrame {
         tablaAsientos = new javax.swing.JTable();
         etiquetaAsientos = new javax.swing.JLabel();
         panelInfoRutas = new javax.swing.JPanel();
+        comboSemana = new javax.swing.JComboBox<>();
+        comboDestino = new javax.swing.JComboBox<>();
+        etiquetaConsultas = new javax.swing.JLabel();
+        etiquetaInfoViajeSel = new javax.swing.JLabel();
+        etiquetadia = new javax.swing.JLabel();
+        etiquetaDestino = new javax.swing.JLabel();
+        etiquetaSale = new javax.swing.JLabel();
+        sale = new javax.swing.JLabel();
+        btnActualizaViaje = new javax.swing.JButton();
+        etiquetaDesti = new javax.swing.JLabel();
+        destino = new javax.swing.JLabel();
+        etiquetaTiempo = new javax.swing.JLabel();
+        tiempoE = new javax.swing.JLabel();
+        etiquetaCosto = new javax.swing.JLabel();
+        costo = new javax.swing.JLabel();
+        etiquetaKM = new javax.swing.JLabel();
+        KM = new javax.swing.JLabel();
+        etiquetacHOFER = new javax.swing.JLabel();
+        chofer = new javax.swing.JLabel();
         panelEncomiendas = new javax.swing.JPanel();
         panelCompraTicket = new javax.swing.JPanel();
         panelInfoTickets = new javax.swing.JPanel();
@@ -182,17 +201,177 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        panelInfoRutas.setBackground(new java.awt.Color(0, 0, 0));
+        panelInfoRutas.setBackground(new java.awt.Color(51, 153, 255));
+        panelInfoRutas.setForeground(new java.awt.Color(255, 255, 255));
+
+        comboSemana.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        comboSemana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        comboDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        etiquetaConsultas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaConsultas.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaConsultas.setText("Consulta de viajes");
+
+        etiquetaInfoViajeSel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        etiquetaInfoViajeSel.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaInfoViajeSel.setText("Info del viaje Seleccionado");
+
+        etiquetadia.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetadia.setText("Dia de la semana");
+
+        etiquetaDestino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaDestino.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaDestino.setText("Destino del viaje");
+
+        etiquetaSale.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaSale.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaSale.setText("Sale de:");
+
+        sale.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        sale.setForeground(new java.awt.Color(255, 255, 255));
+
+        btnActualizaViaje.setBackground(new java.awt.Color(153, 204, 255));
+        btnActualizaViaje.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnActualizaViaje.setForeground(new java.awt.Color(0, 0, 0));
+        btnActualizaViaje.setText("Actualizar");
+
+        etiquetaDesti.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaDesti.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaDesti.setText("Destino :");
+
+        destino.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        destino.setForeground(new java.awt.Color(255, 255, 255));
+
+        etiquetaTiempo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaTiempo.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaTiempo.setText("Tiempo estimado :");
+
+        tiempoE.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        tiempoE.setForeground(new java.awt.Color(255, 255, 255));
+
+        etiquetaCosto.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaCosto.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaCosto.setText("Costo :");
+
+        costo.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        costo.setForeground(new java.awt.Color(255, 255, 255));
+
+        etiquetaKM.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetaKM.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaKM.setText("Cantidad de Km :");
+
+        KM.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        KM.setForeground(new java.awt.Color(255, 255, 255));
+
+        etiquetacHOFER.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetacHOFER.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetacHOFER.setText("Chofer asignado :");
+
+        chofer.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        chofer.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelInfoRutasLayout = new javax.swing.GroupLayout(panelInfoRutas);
         panelInfoRutas.setLayout(panelInfoRutasLayout);
         panelInfoRutasLayout.setHorizontalGroup(
             panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 588, Short.MAX_VALUE)
+            .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoRutasLayout.createSequentialGroup()
+                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnActualizaViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                                .addComponent(comboSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(comboDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(29, 29, 29))
+                    .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiquetaDesti)
+                            .addComponent(etiquetaSale))
+                        .addGap(27, 27, 27)
+                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(sale, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
+                            .addComponent(destino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                                    .addComponent(etiquetaKM)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(KM, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                                    .addComponent(etiquetaCosto)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(costo, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                                    .addComponent(etiquetaTiempo)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tiempoE, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                                .addComponent(etiquetacHOFER)
+                                .addGap(18, 18, 18)
+                                .addComponent(chofer, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))))
+            .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(etiquetadia)
+                        .addGap(82, 82, 82)
+                        .addComponent(etiquetaConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(etiquetaDestino))
+                    .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                        .addGap(188, 188, 188)
+                        .addComponent(etiquetaInfoViajeSel)))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         panelInfoRutasLayout.setVerticalGroup(
             panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 447, Short.MAX_VALUE)
+            .addGroup(panelInfoRutasLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(etiquetaConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetadia)
+                    .addComponent(etiquetaDestino))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboSemana, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(etiquetaInfoViajeSel, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(sale, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaSale))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiquetaDesti)
+                    .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tiempoE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiquetaTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaCosto)
+                    .addComponent(costo, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaKM)
+                    .addComponent(KM, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetacHOFER)
+                    .addComponent(chofer, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(btnActualizaViaje)
+                .addGap(23, 23, 23))
         );
 
         panelEncomiendas.setBackground(new java.awt.Color(255, 51, 51));
@@ -303,7 +482,9 @@ public class Vista extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelInfoRutas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelEncomiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelPrincipalLayout.createSequentialGroup()
+                        .addComponent(panelEncomiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,6 +556,8 @@ public class Vista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BtnBus1;
+    private javax.swing.JLabel KM;
+    private javax.swing.JButton btnActualizaViaje;
     private javax.swing.JButton btnAdmin;
     private javax.swing.JButton btnBus2;
     private javax.swing.JButton btnBus3;
@@ -383,12 +566,27 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnBus6;
     private javax.swing.JButton btnInfoEncomi;
     private javax.swing.JButton btnRetiroEncomi;
+    private javax.swing.JLabel chofer;
+    private javax.swing.JComboBox<String> comboDestino;
+    private javax.swing.JComboBox<String> comboSemana;
+    private javax.swing.JLabel costo;
+    private javax.swing.JLabel destino;
     private javax.swing.JLabel etiquetaAsientos;
     private javax.swing.JLabel etiquetaChod;
+    private javax.swing.JLabel etiquetaConsultas;
+    private javax.swing.JLabel etiquetaCosto;
+    private javax.swing.JLabel etiquetaDesti;
+    private javax.swing.JLabel etiquetaDestino;
     private javax.swing.JLabel etiquetaGestion;
     private javax.swing.JLabel etiquetaInfoBus;
+    private javax.swing.JLabel etiquetaInfoViajeSel;
+    private javax.swing.JLabel etiquetaKM;
     private javax.swing.JLabel etiquetaNBus;
     private javax.swing.JLabel etiquetaNombreChofer;
+    private javax.swing.JLabel etiquetaSale;
+    private javax.swing.JLabel etiquetaTiempo;
+    private javax.swing.JLabel etiquetacHOFER;
+    private javax.swing.JLabel etiquetadia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelAdmin;
@@ -399,6 +597,8 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel panelInfoRutas;
     private javax.swing.JPanel panelInfoTickets;
     private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JLabel sale;
     private javax.swing.JTable tablaAsientos;
+    private javax.swing.JLabel tiempoE;
     // End of variables declaration//GEN-END:variables
 }
