@@ -67,6 +67,9 @@ public class Vista extends javax.swing.JFrame {
         etiquetacHOFER = new javax.swing.JLabel();
         chofer = new javax.swing.JLabel();
         panelEncomiendas = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        etiquetaPeso = new javax.swing.JLabel();
+        peso = new javax.swing.JTextField();
         panelCompraTicket = new javax.swing.JPanel();
         btnCompraTicket = new javax.swing.JButton();
         etiquetaNombre = new javax.swing.JLabel();
@@ -387,15 +390,38 @@ public class Vista extends javax.swing.JFrame {
 
         panelEncomiendas.setBackground(new java.awt.Color(0, 153, 153));
 
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Realizacion de Encomienda");
+
+        etiquetaPeso.setText("Peso :");
+
         javax.swing.GroupLayout panelEncomiendasLayout = new javax.swing.GroupLayout(panelEncomiendas);
         panelEncomiendas.setLayout(panelEncomiendasLayout);
         panelEncomiendasLayout.setHorizontalGroup(
             panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                        .addGap(217, 217, 217)
+                        .addComponent(jLabel2))
+                    .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(etiquetaPeso)
+                        .addGap(27, 27, 27)
+                        .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelEncomiendasLayout.setVerticalGroup(
             panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaPeso)
+                    .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelCompraTicket.setBackground(new java.awt.Color(51, 153, 255));
@@ -579,7 +605,7 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13)
                 .addComponent(btnRetiroEncomi)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -705,12 +731,14 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaNTick;
     private javax.swing.JLabel etiquetaNombre;
     private javax.swing.JLabel etiquetaNombreChofer;
+    private javax.swing.JLabel etiquetaPeso;
     private javax.swing.JLabel etiquetaSale;
     private javax.swing.JLabel etiquetaTiempo;
     private javax.swing.JLabel etiquetacHOFER;
     private javax.swing.JLabel etiquetadia;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
@@ -720,6 +748,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel panelInfoRutas;
     private javax.swing.JPanel panelInfoTickets;
     private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JTextField peso;
     private javax.swing.JLabel sale;
     private javax.swing.JTable tablaAsientos;
     private javax.swing.JLabel ticketN;
