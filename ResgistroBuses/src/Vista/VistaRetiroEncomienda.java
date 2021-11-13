@@ -51,6 +51,7 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
         espacioHoraLlegada = new javax.swing.JTextField();
         espacioHoraEntrega = new javax.swing.JTextField();
         espacioNumeroViaje = new javax.swing.JTextField();
+        botonRetirar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -104,6 +105,9 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
         etiquetaLugarSalida.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaLugarSalida.setForeground(new java.awt.Color(0, 0, 0));
         etiquetaLugarSalida.setText("lugar de salida:");
+
+        botonRetirar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        botonRetirar.setText("Retirar Encomienda");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -165,8 +169,13 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
                         .addGap(45, 45, 45))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(etiquetaInformacionEncomienda)
-                .addGap(415, 415, 415))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(etiquetaInformacionEncomienda)
+                        .addGap(415, 415, 415))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(botonRetirar)
+                        .addGap(96, 96, 96))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +192,7 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
                     .addComponent(etiquetaPrecioEncomienda)
                     .addComponent(espacioPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(espacioNumeroViaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(espacioEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etiquetaEstado)
@@ -209,7 +218,9 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaHoraEntrega)
                     .addComponent(espacioHoraEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonRetirar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -263,6 +274,7 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField EspacioNombreReceptor;
+    private javax.swing.JButton botonRetirar;
     private javax.swing.JTextField espacioCedulaEmisor;
     private javax.swing.JTextField espacioEstado;
     private javax.swing.JTextField espacioHoraEntrega;
