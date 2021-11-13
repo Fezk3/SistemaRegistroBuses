@@ -68,8 +68,17 @@ public class Vista extends javax.swing.JFrame {
         chofer = new javax.swing.JLabel();
         panelEncomiendas = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        etiquetaPeso = new javax.swing.JLabel();
+        etiquetapeso = new javax.swing.JLabel();
         peso = new javax.swing.JTextField();
+        etiquetade = new javax.swing.JLabel();
+        cajaDe = new javax.swing.JTextField();
+        etiquetapara = new javax.swing.JLabel();
+        cajaPara = new javax.swing.JTextField();
+        etiquetasalida = new javax.swing.JLabel();
+        cajasalida = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        cajadestino = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         panelCompraTicket = new javax.swing.JPanel();
         btnCompraTicket = new javax.swing.JButton();
         etiquetaNombre = new javax.swing.JLabel();
@@ -394,7 +403,23 @@ public class Vista extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Realizacion de Encomienda");
 
-        etiquetaPeso.setText("Peso :");
+        etiquetapeso.setText("Peso :");
+
+        peso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        peso.setForeground(new java.awt.Color(0, 0, 0));
+
+        etiquetade.setText("De :");
+
+        etiquetapara.setText("Para :");
+
+        etiquetasalida.setText("Lugar de salida : ");
+
+        jLabel3.setText("Lugar de destino :");
+
+        jButton2.setBackground(new java.awt.Color(102, 153, 255));
+        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Hacer Encomienda");
 
         javax.swing.GroupLayout panelEncomiendasLayout = new javax.swing.GroupLayout(panelEncomiendas);
         panelEncomiendas.setLayout(panelEncomiendasLayout);
@@ -407,10 +432,30 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(jLabel2))
                     .addGroup(panelEncomiendasLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(etiquetaPeso)
-                        .addGap(27, 27, 27)
-                        .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(etiquetapeso)
+                                    .addComponent(etiquetade)
+                                    .addComponent(etiquetapara))
+                                .addGap(27, 27, 27)
+                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(peso, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                    .addComponent(cajaPara, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cajaDe)))
+                            .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(etiquetasalida))
+                                .addGap(18, 18, 18)
+                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cajasalida, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                    .addComponent(cajadestino))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEncomiendasLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(204, 204, 204))
         );
         panelEncomiendasLayout.setVerticalGroup(
             panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -419,8 +464,26 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiquetaPeso)
+                    .addComponent(etiquetapeso)
                     .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetade)
+                    .addComponent(cajaDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetapara)
+                    .addComponent(cajaPara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetasalida)
+                    .addComponent(cajasalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(cajadestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -630,8 +693,9 @@ public class Vista extends javax.swing.JFrame {
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addComponent(panelInfoRutas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelEncomiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelEncomiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addComponent(panelCompraTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -706,7 +770,11 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnCompraTicket;
     private javax.swing.JButton btnInfoEncomi;
     private javax.swing.JButton btnRetiroEncomi;
+    private javax.swing.JTextField cajaDe;
     private javax.swing.JTextField cajaNombre;
+    private javax.swing.JTextField cajaPara;
+    private javax.swing.JTextField cajadestino;
+    private javax.swing.JTextField cajasalida;
     private javax.swing.JLabel cedula;
     private javax.swing.JLabel chofer;
     private javax.swing.JComboBox<String> comboAsiento;
@@ -731,14 +799,19 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaNTick;
     private javax.swing.JLabel etiquetaNombre;
     private javax.swing.JLabel etiquetaNombreChofer;
-    private javax.swing.JLabel etiquetaPeso;
     private javax.swing.JLabel etiquetaSale;
     private javax.swing.JLabel etiquetaTiempo;
     private javax.swing.JLabel etiquetacHOFER;
+    private javax.swing.JLabel etiquetade;
     private javax.swing.JLabel etiquetadia;
+    private javax.swing.JLabel etiquetapara;
+    private javax.swing.JLabel etiquetapeso;
+    private javax.swing.JLabel etiquetasalida;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
