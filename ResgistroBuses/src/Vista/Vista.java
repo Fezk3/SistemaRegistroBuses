@@ -44,6 +44,10 @@ public class Vista extends javax.swing.JFrame {
         panelCompraTicket = new javax.swing.JPanel();
         panelInfoTickets = new javax.swing.JPanel();
         panelAdmin = new javax.swing.JPanel();
+        etiquetaGestion = new javax.swing.JLabel();
+        btnAdmin = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -185,17 +189,57 @@ public class Vista extends javax.swing.JFrame {
             .addGap(0, 252, Short.MAX_VALUE)
         );
 
-        panelAdmin.setBackground(new java.awt.Color(255, 153, 255));
+        panelAdmin.setBackground(new java.awt.Color(51, 102, 255));
+        panelAdmin.setForeground(new java.awt.Color(255, 255, 255));
+
+        etiquetaGestion.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        etiquetaGestion.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetaGestion.setText("Gestion ");
+
+        btnAdmin.setBackground(new java.awt.Color(153, 204, 255));
+        btnAdmin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnAdmin.setForeground(new java.awt.Color(0, 0, 0));
+        btnAdmin.setText("Administracion");
+
+        jButton1.setBackground(new java.awt.Color(153, 204, 255));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
+        jButton1.setText("Info Encominedas");
+
+        jButton2.setBackground(new java.awt.Color(153, 204, 255));
+        jButton2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
+        jButton2.setText("Retiro Encomiendas");
 
         javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
         panelAdmin.setLayout(panelAdminLayout);
         panelAdminLayout.setHorizontalGroup(
             panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAdminLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(btnAdmin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
+                .addGap(30, 30, 30))
+            .addGroup(panelAdminLayout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(etiquetaGestion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelAdminLayout.setVerticalGroup(
             panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(panelAdminLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(etiquetaGestion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(30, 30, 30)
+                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2)
+                    .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46))
         );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -283,11 +327,15 @@ public class Vista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAdmin;
     private javax.swing.JLabel etiquetaAsientos;
     private javax.swing.JLabel etiquetaChod;
+    private javax.swing.JLabel etiquetaGestion;
     private javax.swing.JLabel etiquetaInfoBus;
     private javax.swing.JLabel etiquetaNBus;
     private javax.swing.JLabel etiquetaNombreChofer;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
