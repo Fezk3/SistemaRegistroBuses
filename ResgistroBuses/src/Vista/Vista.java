@@ -16,6 +16,8 @@ public class Vista extends javax.swing.JFrame {
      */
     public Vista() {
         initComponents();
+        // luego pasar al main
+        this.setLocationRelativeTo(null);
     }
 
     /**
