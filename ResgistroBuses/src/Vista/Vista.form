@@ -60,22 +60,25 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
+              <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="panelCompraTicket" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="panelInfoTickets" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="panelInfoRutas" alignment="0" max="32767" attributes="0"/>
                       <Component id="panelBuses" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="panelInfoBus" max="32767" attributes="0"/>
-                      <Component id="panelEncomiendas" max="32767" attributes="0"/>
                       <Component id="panelAdmin" max="32767" attributes="0"/>
                   </Group>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Component id="panelInfoRutas" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="panelEncomiendas" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -312,7 +315,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="645" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="447" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
