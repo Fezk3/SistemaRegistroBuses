@@ -117,8 +117,16 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="etiquetaInformacionEncomienda" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="415" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="etiquetaInformacionEncomienda" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="415" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="botonRetirar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="96" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
           </Group>
         </DimensionLayout>
@@ -139,7 +147,7 @@
                       <Component id="espacioPrecio" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="espacioNumeroViaje" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="66" max="32767" attributes="0"/>
+                  <EmptySpace pref="65" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="espacioEstado" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="etiquetaEstado" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -170,7 +178,9 @@
                       <Component id="etiquetaHoraEntrega" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="espacioHoraEntrega" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="botonRetirar" min="-2" pref="34" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -329,6 +339,14 @@
         <Component class="javax.swing.JTextField" name="espacioHoraEntrega">
         </Component>
         <Component class="javax.swing.JTextField" name="espacioNumeroViaje">
+        </Component>
+        <Component class="javax.swing.JButton" name="botonRetirar">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="14" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Retirar Encomienda"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
