@@ -64,8 +64,6 @@ public class Vista extends javax.swing.JFrame {
         etiquetaNBus = new javax.swing.JLabel();
         etiquetaChod = new javax.swing.JLabel();
         etiquetaNombreChofer = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tablaAsientos = new javax.swing.JTable();
         etiquetaAsientos = new javax.swing.JLabel();
         panelInfoRutas = new javax.swing.JPanel();
         comboSemana = new javax.swing.JComboBox<>();
@@ -192,20 +190,6 @@ public class Vista extends javax.swing.JFrame {
         etiquetaChod.setForeground(new java.awt.Color(255, 255, 255));
         etiquetaChod.setText("Chofer:");
 
-        tablaAsientos.setForeground(new java.awt.Color(255, 255, 255));
-        tablaAsientos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tablaAsientos);
-
         etiquetaAsientos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaAsientos.setForeground(new java.awt.Color(255, 255, 255));
         etiquetaAsientos.setText("Listado de asientos ");
@@ -225,14 +209,9 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(etiquetaNombreChofer, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(13, 13, 13))
             .addGroup(panelInfoBusLayout.createSequentialGroup()
-                .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelInfoBusLayout.createSequentialGroup()
-                        .addGap(156, 156, 156)
-                        .addComponent(etiquetaAsientos))
-                    .addGroup(panelInfoBusLayout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addGap(156, 156, 156)
+                .addComponent(etiquetaAsientos)
+                .addContainerGap(194, Short.MAX_VALUE))
         );
         panelInfoBusLayout.setVerticalGroup(
             panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,9 +229,7 @@ public class Vista extends javax.swing.JFrame {
                             .addComponent(etiquetaChod))))
                 .addGap(31, 31, 31)
                 .addComponent(etiquetaAsientos)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelInfoRutas.setBackground(new java.awt.Color(51, 153, 255));
@@ -520,7 +497,7 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(cajadestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         panelCompraTicket.setBackground(new java.awt.Color(51, 153, 255));
@@ -891,7 +868,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
     private javax.swing.JPanel panelCompraTicket;
@@ -902,7 +878,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JTextField peso;
     private javax.swing.JLabel sale;
-    private javax.swing.JTable tablaAsientos;
     private javax.swing.JLabel ticketN;
     private javax.swing.JLabel tiempoE;
     // End of variables declaration//GEN-END:variables
