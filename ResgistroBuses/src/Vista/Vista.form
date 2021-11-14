@@ -212,16 +212,16 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="etiquetaInfoBus" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="etiquetaNBus" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="etiquetaNBus" min="-2" pref="15" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="etiquetaChod" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="etiquetaNombreChofer" alignment="0" min="-2" pref="15" max="-2" attributes="0"/>
+                                  <Component id="etiquetaChod" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -360,9 +360,9 @@
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="etiquetacHOFER" min="-2" max="-2" attributes="0"/>
+                                      <Component id="etiquetabus" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="chofer" min="-2" pref="131" max="-2" attributes="0"/>
+                                      <Component id="bus" min="-2" pref="131" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -431,8 +431,8 @@
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="etiquetacHOFER" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="chofer" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
+                          <Component id="etiquetabus" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bus" alignment="3" min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="24" max="32767" attributes="0"/>
                       <Component id="btnActualizaViaje" min="-2" max="-2" attributes="0"/>
@@ -635,7 +635,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="etiquetacHOFER">
+            <Component class="javax.swing.JLabel" name="etiquetabus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>
@@ -643,10 +643,10 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Chofer asignado :"/>
+                <Property name="text" type="java.lang.String" value="Bus asigando:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="chofer">
+            <Component class="javax.swing.JLabel" name="bus">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Arial" size="12" style="1"/>

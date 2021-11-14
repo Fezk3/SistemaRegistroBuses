@@ -64,8 +64,8 @@ public class Vista extends javax.swing.JFrame {
         costo = new javax.swing.JLabel();
         etiquetaKM = new javax.swing.JLabel();
         KM = new javax.swing.JLabel();
-        etiquetacHOFER = new javax.swing.JLabel();
-        chofer = new javax.swing.JLabel();
+        etiquetabus = new javax.swing.JLabel();
+        bus = new javax.swing.JLabel();
         panelEncomiendas = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         etiquetapeso = new javax.swing.JLabel();
@@ -209,14 +209,14 @@ public class Vista extends javax.swing.JFrame {
                 .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelInfoBusLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etiquetaInfoBus)
                             .addComponent(etiquetaNBus, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(panelInfoBusLayout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etiquetaChod)
-                            .addComponent(etiquetaNombreChofer, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(panelInfoBusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiquetaNombreChofer, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(etiquetaChod))))
                 .addGap(31, 31, 31)
                 .addComponent(etiquetaAsientos)
                 .addGap(18, 18, 18)
@@ -287,12 +287,12 @@ public class Vista extends javax.swing.JFrame {
         KM.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         KM.setForeground(new java.awt.Color(255, 255, 255));
 
-        etiquetacHOFER.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        etiquetacHOFER.setForeground(new java.awt.Color(255, 255, 255));
-        etiquetacHOFER.setText("Chofer asignado :");
+        etiquetabus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        etiquetabus.setForeground(new java.awt.Color(255, 255, 255));
+        etiquetabus.setText("Bus asigando:");
 
-        chofer.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        chofer.setForeground(new java.awt.Color(255, 255, 255));
+        bus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        bus.setForeground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout panelInfoRutasLayout = new javax.swing.GroupLayout(panelInfoRutas);
         panelInfoRutas.setLayout(panelInfoRutasLayout);
@@ -336,9 +336,9 @@ public class Vista extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(tiempoE, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(panelInfoRutasLayout.createSequentialGroup()
-                                .addComponent(etiquetacHOFER)
+                                .addComponent(etiquetabus)
                                 .addGap(18, 18, 18)
-                                .addComponent(chofer, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(bus, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(panelInfoRutasLayout.createSequentialGroup()
                 .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -390,8 +390,8 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(KM, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(etiquetacHOFER)
-                    .addComponent(chofer, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(etiquetabus)
+                    .addComponent(bus, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(btnActualizaViaje)
                 .addGap(23, 23, 23))
@@ -770,13 +770,13 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnCompraTicket;
     private javax.swing.JButton btnInfoEncomi;
     private javax.swing.JButton btnRetiroEncomi;
+    private javax.swing.JLabel bus;
     private javax.swing.JTextField cajaDe;
     private javax.swing.JTextField cajaNombre;
     private javax.swing.JTextField cajaPara;
     private javax.swing.JTextField cajadestino;
     private javax.swing.JTextField cajasalida;
     private javax.swing.JLabel cedula;
-    private javax.swing.JLabel chofer;
     private javax.swing.JComboBox<String> comboAsiento;
     private javax.swing.JComboBox<String> comboDestino;
     private javax.swing.JComboBox<String> comboSemana;
@@ -801,7 +801,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaNombreChofer;
     private javax.swing.JLabel etiquetaSale;
     private javax.swing.JLabel etiquetaTiempo;
-    private javax.swing.JLabel etiquetacHOFER;
+    private javax.swing.JLabel etiquetabus;
     private javax.swing.JLabel etiquetade;
     private javax.swing.JLabel etiquetadia;
     private javax.swing.JLabel etiquetapara;
