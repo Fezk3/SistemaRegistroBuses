@@ -643,6 +643,11 @@ public class Vista extends javax.swing.JFrame {
         btnAdmin.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnAdmin.setForeground(new java.awt.Color(0, 0, 0));
         btnAdmin.setText("Administracion");
+        btnAdmin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAdminActionPerformed(evt);
+            }
+        });
 
         btnInfoEncomi.setBackground(new java.awt.Color(153, 204, 255));
         btnInfoEncomi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -814,6 +819,13 @@ public class Vista extends javax.swing.JFrame {
         encoR.validate();
                 
     }//GEN-LAST:event_btnRetiroEncomiActionPerformed
+
+    private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
+        VistaAdmin encoR = new VistaAdmin();
+        encoR.setVisible(true);
+        encoR.setLocationRelativeTo(null);
+        encoR.validate();
+    }//GEN-LAST:event_btnAdminActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
