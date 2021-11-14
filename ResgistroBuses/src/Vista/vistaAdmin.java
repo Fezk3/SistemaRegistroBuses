@@ -20,16 +20,15 @@ import javax.swing.JOptionPane;
  *
  * @author manus
  */
-public class vistaAdmin extends javax.swing.JFrame {
+public class VistaAdmin extends javax.swing.JFrame {
 
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
     public static final String password = /*"MakI-0*1"*/ "chismosear";
     PreparedStatement ps;
     ResultSet rs;
-    
-    
-    public vistaAdmin() {
+
+    public VistaAdmin() {
         initComponents();
         llenarComboBus();
     }
@@ -52,28 +51,22 @@ public class vistaAdmin extends javax.swing.JFrame {
 
     }
 
-    public void llenarComboBus(){
-                Connection conexion = null;
+    public void llenarComboBus() {
+        Connection conexion = null;
 
         try {
 
             conexion = getConnection();
 
             // indicando que mostrar
-            ps = conexion.prepareStatement("select n_bus from viaje where dia=?");
-                    
-            ps.setString(1,comboDia.getSelectedItem().toString());
+            ps = conexion.prepareStatement("select n_unico from bus");
             // Obteniendo el resultado del query
             rs = ps.executeQuery();
 
             // check si rs tiene contenido
-            if (rs.next()) {
-                comboBus.addItem(rs.getString("sale_de"));
-                
-                
-            } else {
-                JOptionPane.showMessageDialog(null, "No existe una persona con esa clave");
-                
+            while (rs.next()) {
+                comboBus.addItem(rs.getString("n_unico"));
+
             }
 
             ps.close();
@@ -82,7 +75,8 @@ public class vistaAdmin extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.err.println("ERROR, " + e);
         }
-    }  
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -109,29 +103,44 @@ public class vistaAdmin extends javax.swing.JFrame {
         comboDia = new javax.swing.JComboBox<>();
         comboBus = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
+        botonAgregarViaje = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Lugar de Destino:");
 
+        jLabel3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel3.setText("Recorrido en Tiempo:");
 
+        jLabel4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel4.setText("Recorrido en KM:");
 
+        jLabel5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel5.setText("Costo por Ticket");
 
+        jLabel7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel7.setText("Lugar de Salida:");
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setText("Agregar Viaje");
 
+        jLabel1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel1.setText("Dia del viaje:");
 
+        jLabel9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel9.setText("Numero del Bus:");
 
+        comboDia.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         comboDia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo" }));
 
-        comboBus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        botonAgregarViaje.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        botonAgregarViaje.setText("Agergar Viaje");
+        botonAgregarViaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonAgregarViajeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -154,9 +163,8 @@ public class vistaAdmin extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(campoCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(comboDia, javax.swing.GroupLayout.Alignment.TRAILING, 0, 1, Short.MAX_VALUE)
-                                        .addComponent(comboBus, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(comboBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(comboDia, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGap(8, 8, 8)
@@ -175,7 +183,10 @@ public class vistaAdmin extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(campoSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(campoDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(campoDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(botonAgregarViaje)))
                 .addGap(47, 47, 47)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(874, Short.MAX_VALUE))
@@ -215,7 +226,9 @@ public class vistaAdmin extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
                             .addComponent(comboBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 123, Short.MAX_VALUE))
+                        .addGap(48, 48, 48)
+                        .addComponent(botonAgregarViaje)
+                        .addGap(0, 57, Short.MAX_VALUE))
                     .addComponent(jSeparator1))
                 .addContainerGap())
         );
@@ -236,6 +249,54 @@ public class vistaAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonAgregarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarViajeActionPerformed
+        Connection conexion = null;
+
+        try {
+
+            conexion = getConnection();
+
+            // INSERSION
+            ps = conexion.prepareStatement("insert into viaje (sale_de,destino,tiempo_estimado,costo,cantidad_KM,dia,bus_n_unico)  values (?, ?, ?, ?, ?, ? , ?)");
+            // Indicando datos a insertar (en el orden de las cols)
+            ps.setString(1, campoSalida.getText());
+            ps.setString(2, campoDestino.getText());
+            ps.setString(3, campoTiempo.getText());
+            ps.setString(4, campoCosto.getText());
+            ps.setString(5, campoKM.getText());
+            ps.setString(6, comboDia.getSelectedItem().toString());
+            ps.setString(7, comboBus.getSelectedItem().toString());
+
+            // Ejecutando la instruccion de Insercion a la DB
+            int resultado = ps.executeUpdate();
+
+            if (resultado > 0) {
+                JOptionPane.showMessageDialog(null, "Registro realizado exitosamente");
+                campoSalida.setText(null);
+                campoDestino.setText(null);
+                campoTiempo.setText(null);
+                campoCosto.setText(null);
+                campoKM.setText(null);
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al insertar el registro");
+                campoSalida.setText(null);
+                campoDestino.setText(null);
+                campoTiempo.setText(null);
+                campoCosto.setText(null);
+                campoKM.setText(null);
+            }
+
+            // cerrando conexion con la DB
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
+
+
+    }//GEN-LAST:event_botonAgregarViajeActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -253,25 +314,27 @@ public class vistaAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vistaAdmin().setVisible(true);
+                new VistaAdmin().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonAgregarViaje;
     private javax.swing.JTextField campoCosto;
     private javax.swing.JTextField campoDestino;
     private javax.swing.JTextField campoKM;
