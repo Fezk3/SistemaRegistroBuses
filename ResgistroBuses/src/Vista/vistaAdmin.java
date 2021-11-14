@@ -38,7 +38,7 @@ public class VistaAdmin extends javax.swing.JFrame {
         Connection conexion = null;
 
         try {
-
+ 
             Class.forName("com.mysql.jdbc.Driver");
             conexion = (com.mysql.jdbc.Connection) DriverManager.getConnection(URL, usuario, password);
 
