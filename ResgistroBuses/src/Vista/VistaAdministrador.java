@@ -99,8 +99,6 @@ public class VistaAdministrador extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         botonAgregarViaje = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jLabel2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         jLabel2.setText("Lugar de Destino:");
 
