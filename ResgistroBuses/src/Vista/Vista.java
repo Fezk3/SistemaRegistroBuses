@@ -21,10 +21,33 @@ public class Vista extends javax.swing.JFrame {
         initComponents();
         // luego pasar al main
         this.setLocationRelativeTo(null);
+        LlenaComboDestino();
     }
     
     public void LlenaComboDestino(){
-        
+        com.mysql.jdbc.Connection conexion = null;
+
+        try {
+
+            conexion = getConnection();
+
+            // indicando que mostrar
+            ps = conexion.prepareStatement("select destino from viaje");
+            // Obteniendo el resultado del query
+            rs = ps.executeQuery();
+
+            // check si rs tiene contenido
+            while (rs.next()) {
+                comboDestino.addItem(rs.getString("destino"));
+
+            }
+
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
     }
 
     // METODO PARA CONEXION A LA BASE (SE USA EN TODOS LOS QUERIES)
@@ -237,8 +260,6 @@ public class Vista extends javax.swing.JFrame {
 
         comboSemana.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         comboSemana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo" }));
-
-        comboDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cartago", "limon" }));
 
         etiquetaConsultas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaConsultas.setForeground(new java.awt.Color(255, 255, 255));
