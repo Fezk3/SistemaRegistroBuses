@@ -774,8 +774,13 @@ public class Vista extends javax.swing.JFrame {
                 bus.setText(String.valueOf(rs.getString("n_unico")));
                 
             } else {
-                JOptionPane.showMessageDialog(null, "No existe una persona con esa clave");
-                
+                JOptionPane.showMessageDialog(null, "No existe ese viaje");
+                sale.setText(null);
+                destino.setText(null);
+                tiempoE.setText(null);
+                costo.setText(null);
+                KM.setText(null);
+                bus.setText(null);
             }
 
             ps.close();
