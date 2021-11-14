@@ -774,8 +774,9 @@ public class Vista extends javax.swing.JFrame {
             conexion = getConnection();
 
             // indicando que mostrar
-            ps = conexion.prepareStatement("select sale_de, destino, tiempo_estimado, costo, cantidad_KM "
-                    + "from viaje inner join bus on viaje.idViaje=bus.viaje_idViaje");
+            ps = conexion.prepareStatement("select dia,sale_de, destino, tiempo_estimado, costo, cantidad_KM, n_unico "
+                    + "from viaje inner join bus on viaje.bus_n_unico=bus.n_unico"
+                    + " where dia=? and destino=?");
             ps.setString(1,comboSemana.getSelectedItem().toString());
             ps.setString(2,comboDestino.getSelectedItem().toString());
             // Obteniendo el resultado del query
@@ -788,8 +789,7 @@ public class Vista extends javax.swing.JFrame {
                 tiempoE.setText(rs.getString("tiempo_estimado"));
                 costo.setText(rs.getString("costo"));
                 KM.setText(rs.getString("cantidad_KM"));
-                //ps = conexion.prepareStatement("select bus.n_unico from viaje inner join bus on viaje.idViaje=bus.viaje_idViaje");
-                bus.setText(String.valueOf(rs.getDate("Bus_numero")));
+                bus.setText(String.valueOf(rs.getString("n_unico")));
                 
             } else {
                 JOptionPane.showMessageDialog(null, "No existe una persona con esa clave");
