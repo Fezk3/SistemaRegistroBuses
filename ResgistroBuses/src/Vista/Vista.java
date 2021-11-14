@@ -658,6 +658,11 @@ public class Vista extends javax.swing.JFrame {
         btnRetiroEncomi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnRetiroEncomi.setForeground(new java.awt.Color(0, 0, 0));
         btnRetiroEncomi.setText("Retiro Encomiendas");
+        btnRetiroEncomi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetiroEncomiActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
         panelAdmin.setLayout(panelAdminLayout);
@@ -800,6 +805,15 @@ public class Vista extends javax.swing.JFrame {
         enco.validate();
         
     }//GEN-LAST:event_btnInfoEncomiActionPerformed
+
+    private void btnRetiroEncomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetiroEncomiActionPerformed
+        
+        VistaRetiroEncomienda encoR = new VistaRetiroEncomienda();
+        encoR.setVisible(true);
+        encoR.setLocationRelativeTo(null);
+        encoR.validate();
+                
+    }//GEN-LAST:event_btnRetiroEncomiActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
