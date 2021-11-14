@@ -87,7 +87,7 @@ public class Vista extends javax.swing.JFrame {
         comboAsiento = new javax.swing.JComboBox<>();
         panelInfoTickets = new javax.swing.JPanel();
         etiquetaInfoTick = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnSig = new javax.swing.JButton();
         etiquetaNTick = new javax.swing.JLabel();
         ticketN = new javax.swing.JLabel();
         etiquetaCedCliente = new javax.swing.JLabel();
@@ -107,6 +107,18 @@ public class Vista extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Buses");
 
+        BtnBus1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
+
+        btnBus2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
+
+        btnBus3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
+
+        btnBus4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
+
+        btnBus5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
+
+        btnBus6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
+
         javax.swing.GroupLayout panelBusesLayout = new javax.swing.GroupLayout(panelBuses);
         panelBuses.setLayout(panelBusesLayout);
         panelBusesLayout.setHorizontalGroup(
@@ -114,19 +126,20 @@ public class Vista extends javax.swing.JFrame {
             .addGroup(panelBusesLayout.createSequentialGroup()
                 .addGap(198, 198, 198)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(209, Short.MAX_VALUE))
             .addGroup(panelBusesLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBus5, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                    .addComponent(btnBus3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BtnBus1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(41, 41, 41)
+                .addGroup(panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(btnBus3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(BtnBus1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(btnBus5, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBus4, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
                     .addComponent(btnBus2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBus4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnBus6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31))
+                .addGap(45, 45, 45))
         );
         panelBusesLayout.setVerticalGroup(
             panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,20 +148,17 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addGroup(panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBus2, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(BtnBus1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(82, 82, 82)
+                    .addComponent(btnBus2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(BtnBus1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(64, 64, 64)
                 .addGroup(panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnBus4, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                    .addComponent(btnBus3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(103, 103, 103)
-                .addGroup(panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelBusesLayout.createSequentialGroup()
-                        .addComponent(btnBus6, javax.swing.GroupLayout.DEFAULT_SIZE, 46, Short.MAX_VALUE)
-                        .addGap(132, 132, 132))
-                    .addGroup(panelBusesLayout.createSequentialGroup()
-                        .addComponent(btnBus5, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                    .addComponent(btnBus4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnBus3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(67, 67, 67)
+                .addGroup(panelBusesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBus6, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(btnBus5, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
 
         panelInfoBus.setBackground(new java.awt.Color(0, 153, 255));
@@ -221,7 +231,7 @@ public class Vista extends javax.swing.JFrame {
                 .addComponent(etiquetaAsientos)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         panelInfoRutas.setBackground(new java.awt.Color(51, 153, 255));
@@ -553,10 +563,15 @@ public class Vista extends javax.swing.JFrame {
         etiquetaInfoTick.setForeground(new java.awt.Color(255, 255, 255));
         etiquetaInfoTick.setText("Info de Tickets por Viaje");
 
-        jButton1.setBackground(new java.awt.Color(153, 204, 255));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("Siguiente");
+        btnSig.setBackground(new java.awt.Color(153, 204, 255));
+        btnSig.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnSig.setForeground(new java.awt.Color(0, 0, 0));
+        btnSig.setText("Siguiente");
+        btnSig.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSigActionPerformed(evt);
+            }
+        });
 
         etiquetaNTick.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaNTick.setForeground(new java.awt.Color(255, 255, 255));
@@ -592,7 +607,7 @@ public class Vista extends javax.swing.JFrame {
                 .addContainerGap(122, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoTicketsLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(btnSig)
                 .addGap(36, 36, 36))
         );
         panelInfoTicketsLayout.setVerticalGroup(
@@ -610,7 +625,7 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(cedula, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(etiquetaCedCliente, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addGap(54, 54, 54)
-                .addComponent(jButton1)
+                .addComponent(btnSig)
                 .addContainerGap(33, Short.MAX_VALUE))
         );
 
@@ -693,9 +708,8 @@ public class Vista extends javax.swing.JFrame {
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addComponent(panelInfoRutas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(panelEncomiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelEncomiendas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(panelPrincipalLayout.createSequentialGroup()
                 .addComponent(panelCompraTicket, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -721,6 +735,10 @@ public class Vista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnSigActionPerformed
 
     /**
      * @param args the command line arguments
@@ -770,6 +788,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnCompraTicket;
     private javax.swing.JButton btnInfoEncomi;
     private javax.swing.JButton btnRetiroEncomi;
+    private javax.swing.JButton btnSig;
     private javax.swing.JLabel bus;
     private javax.swing.JTextField cajaDe;
     private javax.swing.JTextField cajaNombre;
@@ -807,7 +826,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetapara;
     private javax.swing.JLabel etiquetapeso;
     private javax.swing.JLabel etiquetasalida;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
