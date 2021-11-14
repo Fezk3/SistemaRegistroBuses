@@ -774,7 +774,8 @@ public class Vista extends javax.swing.JFrame {
             conexion = getConnection();
 
             // indicando que mostrar
-            ps = conexion.prepareStatement("select * from viaje where dia=? and destino=?");
+            ps = conexion.prepareStatement("select sale_de, destino, tiempo_estimado, costo, cantidad_KM "
+                    + "from viaje inner join bus on viaje.idViaje=bus.viaje_idViaje");
             ps.setString(1,comboSemana.getSelectedItem().toString());
             ps.setString(2,comboDestino.getSelectedItem().toString());
             // Obteniendo el resultado del query
