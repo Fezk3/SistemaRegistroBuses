@@ -5,11 +5,23 @@
  */
 package Vista;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author manus
  */
 public class VistaEncomienda extends javax.swing.JFrame {
+
+    public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
+    public static final String usuario = "root";
+    public static final String password = "MakI-0*1";
+    PreparedStatement ps;
+    ResultSet rs;
 
     /**
      * Creates new form VistaEncomienda
@@ -18,6 +30,24 @@ public class VistaEncomienda extends javax.swing.JFrame {
         initComponents();
     }
 
+    public Connection getConnection() throws SQLException {
+
+        Connection conexion = null;
+
+        try {
+
+            Class.forName("com.mysql.jdbc.Driver");
+            conexion = (com.mysql.jdbc.Connection) DriverManager.getConnection(URL, usuario, password);
+
+        } catch (ClassNotFoundException | SQLException e) {
+
+            System.err.println("Error," + e);
+        }
+
+        return conexion;
+
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
