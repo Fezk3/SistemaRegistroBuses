@@ -821,7 +821,7 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRetiroEncomiActionPerformed
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
-        VistaAdmin encoR = new VistaAdmin();
+        VistaAdministrador encoR = new VistaAdministrador();
         encoR.setVisible(true);
         encoR.setLocationRelativeTo(null);
         encoR.validate();
