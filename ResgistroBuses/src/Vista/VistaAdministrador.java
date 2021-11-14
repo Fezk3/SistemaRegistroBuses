@@ -25,6 +25,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
     ResultSet rs;
     public VistaAdministrador() {
         initComponents();
+        llenarComboBus();
     }
 
     public com.mysql.jdbc.Connection getConnection() {
