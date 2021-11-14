@@ -648,6 +648,11 @@ public class Vista extends javax.swing.JFrame {
         btnInfoEncomi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         btnInfoEncomi.setForeground(new java.awt.Color(0, 0, 0));
         btnInfoEncomi.setText("Info Encominedas");
+        btnInfoEncomi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInfoEncomiActionPerformed(evt);
+            }
+        });
 
         btnRetiroEncomi.setBackground(new java.awt.Color(153, 204, 255));
         btnRetiroEncomi.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
@@ -781,6 +786,16 @@ public class Vista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnActualizaViajeActionPerformed
 
+    private void btnInfoEncomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoEncomiActionPerformed
+       
+        
+        VistaEncomienda enco = new VistaEncomienda();
+        enco.setVisible(true);
+        enco.setLocationRelativeTo(null);
+        enco.validate();
+        
+    }//GEN-LAST:event_btnInfoEncomiActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -791,7 +806,7 @@ public class Vista extends javax.swing.JFrame {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+                    break;  
                 }
             }
         } catch (ClassNotFoundException ex) {
