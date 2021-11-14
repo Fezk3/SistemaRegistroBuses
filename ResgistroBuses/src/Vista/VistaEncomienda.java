@@ -23,7 +23,7 @@ public class VistaEncomienda extends javax.swing.JFrame {
     public static final String password = "MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
-    
+
     public int contador; // para el numero de la encomienda
 
     /**
@@ -31,7 +31,6 @@ public class VistaEncomienda extends javax.swing.JFrame {
      */
     public VistaEncomienda() {
         initComponents();
-        contador = 0;
     }
 
     public Connection getConnection() throws SQLException {
@@ -49,6 +48,27 @@ public class VistaEncomienda extends javax.swing.JFrame {
         }
 
         return conexion;
+
+    }
+
+    public void limpiar() {
+
+        contador = 0;
+
+        espacioNumeroEncomiento.setText(null);
+        espacioNumeroViaje.setText(null);
+        espacioPrecio.setText(null);
+        espacioEstado.setText(null);
+        espacioCedulaEmisor.setText(null);
+        espacioNombreReceptor.setText(null);
+        espacioLugarSalida.setText(null);
+        espacioLugarLLegada.setText(null);
+        espacioFechaSalida.setText(null);
+        espacioFechaLlegada.setText(null);
+        espacioFechaEntrega.setText(null);
+        espacioHoraSalida.setText(null);
+        espacioHoraLlegada.setText(null);
+        espacioHoraEntrega.setText(null);
 
     }
 
@@ -332,7 +352,7 @@ public class VistaEncomienda extends javax.swing.JFrame {
 
         Connection conexion = null;
         contador++; // segun el numero se trae dicha encomienda de la DB
-            
+
         try {
 
             conexion = getConnection();
@@ -346,7 +366,8 @@ public class VistaEncomienda extends javax.swing.JFrame {
 
             // check si rs tiene contenido
             if (rs.next()) {
-                
+
+                espacioNumeroEncomiento.setText(String.valueOf(rs.getInt("codigo")));
                 espacioNumeroViaje.setText(rs.getString("Viaje_idViaje"));
                 espacioPrecio.setText(rs.getString("precioXpeso"));
                 espacioEstado.setText(rs.getString("estado"));
@@ -357,13 +378,13 @@ public class VistaEncomienda extends javax.swing.JFrame {
                 espacioFechaSalida.setText(String.valueOf(rs.getDate("fecha_salida")));
                 espacioFechaLlegada.setText(String.valueOf(rs.getDate("fecha_llegada")));
                 espacioFechaEntrega.setText(String.valueOf(rs.getDate("fecha_entrega")));
-                espacioHoraSalida.setText(String.valueOf(rs.getTime("hora_salida")));
-                espacioHoraLlegada.setText(String.valueOf(rs.getTime("hora_llegada")));
-                espacioHoraEntrega.setText(String.valueOf(rs.getTime("hora_entrega")));
-                
+                espacioHoraSalida.setText(rs.getString("hora_salida"));
+                espacioHoraLlegada.setText(rs.getString("hora_llegada"));
+                espacioHoraEntrega.setText(rs.getString("hora_entrega"));
+
             } else {
                 JOptionPane.showMessageDialog(null, "No hay mas encomiendas");
-                espacioNumeroEncomiento.setText(null);
+                limpiar();
             }
 
             ps.close();
