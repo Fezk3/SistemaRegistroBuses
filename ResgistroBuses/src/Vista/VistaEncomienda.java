@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,12 +23,15 @@ public class VistaEncomienda extends javax.swing.JFrame {
     public static final String password = "MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
+    
+    public int contador; // para el numero de la encomienda
 
     /**
      * Creates new form VistaEncomienda
      */
     public VistaEncomienda() {
         initComponents();
+        contador = 0;
     }
 
     public Connection getConnection() throws SQLException {
@@ -47,7 +51,7 @@ public class VistaEncomienda extends javax.swing.JFrame {
         return conexion;
 
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -77,9 +81,9 @@ public class VistaEncomienda extends javax.swing.JFrame {
         espacioCedulaEmisor = new javax.swing.JTextField();
         espacioPrecio = new javax.swing.JTextField();
         espacioLugarLLegada = new javax.swing.JTextField();
-        espacioHoraSAlida = new javax.swing.JTextField();
-        espacioHoraLlegada = new javax.swing.JTextField();
-        espacioHoraEntrega = new javax.swing.JTextField();
+        espacioFechaSalida = new javax.swing.JTextField();
+        espacioFechaLlegada = new javax.swing.JTextField();
+        espacioFechaEntrega = new javax.swing.JTextField();
         botonSiguiente = new javax.swing.JButton();
         espacioLugarSalida = new javax.swing.JTextField();
         espacioNumeroViaje = new javax.swing.JTextField();
@@ -87,6 +91,12 @@ public class VistaEncomienda extends javax.swing.JFrame {
         jSeparator4 = new javax.swing.JSeparator();
         jSeparator6 = new javax.swing.JSeparator();
         espacioNombreReceptor = new javax.swing.JTextField();
+        horaSalida = new javax.swing.JLabel();
+        labelLlegada = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        espacioHoraSalida = new javax.swing.JTextField();
+        espacioHoraLlegada = new javax.swing.JTextField();
+        espacioHoraEntrega = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
@@ -120,15 +130,15 @@ public class VistaEncomienda extends javax.swing.JFrame {
 
         etiquetaHoraSalida.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaHoraSalida.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaHoraSalida.setText("fecha de hora de salida:");
+        etiquetaHoraSalida.setText("fecha de salida:");
 
         etiquetaHoraLlegada.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaHoraLlegada.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaHoraLlegada.setText("fecha de hora de llegada:");
+        etiquetaHoraLlegada.setText("fecha de llegada:");
 
         etiquetaHoraEntrega.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaHoraEntrega.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaHoraEntrega.setText("fecha hora de entrega:");
+        etiquetaHoraEntrega.setText("fecha de entrega:");
 
         etiquetaNumeroViaje.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaNumeroViaje.setForeground(new java.awt.Color(0, 0, 0));
@@ -144,17 +154,57 @@ public class VistaEncomienda extends javax.swing.JFrame {
 
         botonSiguiente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         botonSiguiente.setText("Siguiente Encomienda");
+        botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSiguienteActionPerformed(evt);
+            }
+        });
+
+        horaSalida.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        horaSalida.setForeground(new java.awt.Color(51, 51, 51));
+        horaSalida.setText("Hora de Salida:");
+
+        labelLlegada.setForeground(new java.awt.Color(51, 51, 51));
+        labelLlegada.setText("Hora de llegada:");
+
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Hora de entrega:");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(botonSiguiente)
-                .addGap(170, 170, 170))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(103, 103, 103)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiquetaHoraLlegada)
+                            .addComponent(etiquetaHoraEntrega)
+                            .addComponent(etiquetaHoraSalida))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(espacioFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(espacioFechaLlegada, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                                .addComponent(espacioFechaEntrega)))
+                        .addGap(107, 107, 107)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(18, 18, 18)
+                                .addComponent(espacioHoraEntrega))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(horaSalida)
+                                        .addGap(28, 28, 28))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(labelLlegada)
+                                        .addGap(22, 22, 22)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(espacioHoraLlegada, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                    .addComponent(espacioHoraSalida)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(etiquetaEstado)
@@ -194,17 +244,6 @@ public class VistaEncomienda extends javax.swing.JFrame {
                                 .addComponent(etiquetaPrecioEncomienda)
                                 .addGap(18, 18, 18)
                                 .addComponent(espacioPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etiquetaHoraSalida)
-                            .addComponent(etiquetaHoraLlegada)
-                            .addComponent(etiquetaHoraEntrega))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(espacioHoraSAlida)
-                            .addComponent(espacioHoraLlegada)
-                            .addComponent(espacioHoraEntrega, javax.swing.GroupLayout.DEFAULT_SIZE, 328, Short.MAX_VALUE)))
                     .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 995, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 995, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 995, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,6 +251,10 @@ public class VistaEncomienda extends javax.swing.JFrame {
                         .addGap(382, 382, 382)
                         .addComponent(etiquetaInformacionEncomienda)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(botonSiguiente)
+                .addGap(52, 52, 52))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -249,14 +292,20 @@ public class VistaEncomienda extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaHoraSalida)
-                    .addComponent(espacioHoraSAlida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(espacioFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(horaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(espacioHoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaHoraLlegada)
+                    .addComponent(espacioFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(labelLlegada)
                     .addComponent(espacioHoraLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaHoraEntrega)
+                    .addComponent(espacioFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
                     .addComponent(espacioHoraEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(botonSiguiente)
@@ -280,9 +329,53 @@ public class VistaEncomienda extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
+    private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+
+        Connection conexion = null;
+        contador++; // segun el numero se trae dicha encomienda de la DB
+            
+        try {
+
+            conexion = getConnection();
+
+            // indicando que mostrar
+            ps = conexion.prepareStatement("select * from encomienda where codigo=?");
+            ps.setInt(1, contador);
+
+            // Obteniendo el resultado del query
+            rs = ps.executeQuery();
+
+            // check si rs tiene contenido
+            if (rs.next()) {
+                
+                espacioNumeroViaje.setText(rs.getString("Viaje_idViaje"));
+                espacioPrecio.setText(rs.getString("precioXpeso"));
+                espacioEstado.setText(rs.getString("estado"));
+                espacioCedulaEmisor.setText(rs.getString("Cliente_cedula"));
+                espacioNombreReceptor.setText(rs.getString("para"));
+                espacioLugarSalida.setText(rs.getString("lugar_salida"));
+                espacioLugarLLegada.setText(rs.getString("lugar_destino"));
+                espacioFechaSalida.setText(String.valueOf(rs.getDate("fecha_salida")));
+                espacioFechaLlegada.setText(String.valueOf(rs.getDate("fecha_llegada")));
+                espacioFechaEntrega.setText(String.valueOf(rs.getDate("fecha_entrega")));
+                espacioHoraSalida.setText(String.valueOf(rs.getTime("hora_salida")));
+                espacioHoraLlegada.setText(String.valueOf(rs.getTime("hora_llegada")));
+                espacioHoraEntrega.setText(String.valueOf(rs.getTime("hora_entrega")));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay mas encomiendas");
+                espacioNumeroEncomiento.setText(null);
+            }
+
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
+
+    }//GEN-LAST:event_botonSiguienteActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -319,9 +412,12 @@ public class VistaEncomienda extends javax.swing.JFrame {
     private javax.swing.JButton botonSiguiente;
     private javax.swing.JTextField espacioCedulaEmisor;
     private javax.swing.JTextField espacioEstado;
+    private javax.swing.JTextField espacioFechaEntrega;
+    private javax.swing.JTextField espacioFechaLlegada;
+    private javax.swing.JTextField espacioFechaSalida;
     private javax.swing.JTextField espacioHoraEntrega;
     private javax.swing.JTextField espacioHoraLlegada;
-    private javax.swing.JTextField espacioHoraSAlida;
+    private javax.swing.JTextField espacioHoraSalida;
     private javax.swing.JTextField espacioLugarLLegada;
     private javax.swing.JTextField espacioLugarSalida;
     private javax.swing.JTextField espacioNombreReceptor;
@@ -340,11 +436,14 @@ public class VistaEncomienda extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaNumeroViaje;
     private javax.swing.JLabel etiquetaPrecioEncomienda;
     private javax.swing.JLabel etiqutaNumeroEncomienda;
+    private javax.swing.JLabel horaSalida;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JSeparator jSeparator5;
     private javax.swing.JSeparator jSeparator6;
+    private javax.swing.JLabel labelLlegada;
     // End of variables declaration//GEN-END:variables
 }
