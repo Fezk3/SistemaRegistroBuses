@@ -5,37 +5,31 @@
  */
 package Vista;
 
-import static Vista.Vista.URL;
-import static Vista.Vista.password;
-import static Vista.Vista.usuario;
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.swing.ComboBoxModel;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author manus
  */
-public class VistaAdmin extends javax.swing.JFrame {
+public class VistaAdministrador extends javax.swing.JFrame {
 
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
     public static final String password = /*"MakI-0*1"*/ "chismosear";
     PreparedStatement ps;
     ResultSet rs;
-
-    public VistaAdmin() {
+    public VistaAdministrador() {
         initComponents();
-        llenarComboBus();
     }
 
-    public Connection getConnection() {
+    public com.mysql.jdbc.Connection getConnection() {
 
-        Connection conexion = null;
+        com.mysql.jdbc.Connection conexion = null;
 
         try {
  
@@ -52,7 +46,7 @@ public class VistaAdmin extends javax.swing.JFrame {
     }
 
     public void llenarComboBus() {
-        Connection conexion = null;
+        com.mysql.jdbc.Connection conexion = null;
 
         try {
 
@@ -76,7 +70,7 @@ public class VistaAdmin extends javax.swing.JFrame {
             System.err.println("ERROR, " + e);
         }
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -189,7 +183,7 @@ public class VistaAdmin extends javax.swing.JFrame {
                         .addComponent(botonAgregarViaje)))
                 .addGap(47, 47, 47)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 9, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(874, Short.MAX_VALUE))
+                .addContainerGap(847, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,7 +222,7 @@ public class VistaAdmin extends javax.swing.JFrame {
                             .addComponent(comboBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(48, 48, 48)
                         .addComponent(botonAgregarViaje)
-                        .addGap(0, 57, Short.MAX_VALUE))
+                        .addGap(0, 24, Short.MAX_VALUE))
                     .addComponent(jSeparator1))
                 .addContainerGap())
         );
@@ -241,9 +235,7 @@ public class VistaAdmin extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -294,7 +286,6 @@ public class VistaAdmin extends javax.swing.JFrame {
             System.err.println("ERROR, " + e);
         }
 
-
     }//GEN-LAST:event_botonAgregarViajeActionPerformed
 
     /**
@@ -314,21 +305,20 @@ public class VistaAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaAdministrador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaAdmin().setVisible(true);
+                new VistaAdministrador().setVisible(true);
             }
         });
     }
@@ -353,4 +343,6 @@ public class VistaAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+    
 }
