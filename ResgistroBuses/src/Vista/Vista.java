@@ -6,13 +6,14 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 public class Vista extends javax.swing.JFrame {
 
     // NECESARIO PARA PODER CONECTAR A LA BASE
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = "MakI-0*1";
+    public static final String password = /*"MakI-0*1"*/"chismosear";
     PreparedStatement ps;
     ResultSet rs;
 
@@ -20,6 +21,10 @@ public class Vista extends javax.swing.JFrame {
         initComponents();
         // luego pasar al main
         this.setLocationRelativeTo(null);
+    }
+    
+    public void LlenaComboDestino(){
+        
     }
 
     // METODO PARA CONEXION A LA BASE (SE USA EN TODOS LOS QUERIES)
@@ -254,9 +259,9 @@ public class Vista extends javax.swing.JFrame {
         panelInfoRutas.setForeground(new java.awt.Color(255, 255, 255));
 
         comboSemana.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        comboSemana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboSemana.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "lunes", "martes", "miercoles", "jueves", "viernes", "sabado", "domingo" }));
 
-        comboDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboDestino.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "cartago", "limon" }));
 
         etiquetaConsultas.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         etiquetaConsultas.setForeground(new java.awt.Color(255, 255, 255));
@@ -284,6 +289,11 @@ public class Vista extends javax.swing.JFrame {
         btnActualizaViaje.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnActualizaViaje.setForeground(new java.awt.Color(255, 255, 255));
         btnActualizaViaje.setText("Actualizar");
+        btnActualizaViaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnActualizaViajeActionPerformed(evt);
+            }
+        });
 
         etiquetaDesti.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         etiquetaDesti.setForeground(new java.awt.Color(255, 255, 255));
@@ -755,6 +765,43 @@ public class Vista extends javax.swing.JFrame {
     private void btnSigActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSigActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSigActionPerformed
+
+    private void btnActualizaViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizaViajeActionPerformed
+        Connection conexion = null;
+
+        try {
+
+            conexion = getConnection();
+
+            // indicando que mostrar
+            ps = conexion.prepareStatement("select * from viaje where dia=? and destino=?");
+            ps.setString(1,comboSemana.getSelectedItem().toString());
+            ps.setString(2,comboDestino.getSelectedItem().toString());
+            // Obteniendo el resultado del query
+            rs = ps.executeQuery();
+
+            // check si rs tiene contenido
+            if (rs.next()) {
+                sale.setText(rs.getString("sale_de"));
+                destino.setText(rs.getString("destino"));
+                tiempoE.setText(rs.getString("tiempo_estimado"));
+                costo.setText(rs.getString("costo"));
+                KM.setText(rs.getString("cantidad_KM"));
+                //ps = conexion.prepareStatement("select bus.n_unico from viaje inner join bus on viaje.idViaje=bus.viaje_idViaje");
+                bus.setText(String.valueOf(rs.getDate("Bus_numero")));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con esa clave");
+                
+            }
+
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
+    }//GEN-LAST:event_btnActualizaViajeActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
