@@ -98,7 +98,6 @@ public class VistaEncomienda extends javax.swing.JFrame {
         espacioHoraLlegada = new javax.swing.JTextField();
         espacioHoraEntrega = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 102));
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
