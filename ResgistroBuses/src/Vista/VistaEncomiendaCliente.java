@@ -110,7 +110,6 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
         cedula = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(1009, 612));
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
@@ -378,6 +377,11 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
 
+        if(espacioNumeroEncomiento.getText().equals("")){
+             JOptionPane.showMessageDialog(null, "Seleccione un cliente antes de avanzar");
+             return;
+        }
+        
         Connection conexion = null;
 
         try {
