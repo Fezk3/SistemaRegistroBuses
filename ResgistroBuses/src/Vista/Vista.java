@@ -1061,7 +1061,10 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdminActionPerformed
 
     private void btnEncomiendaBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncomiendaBuscaActionPerformed
-        // TODO add your handling code here:
+        VistaEncomiendaBuscada encoB = new VistaEncomiendaBuscada();
+        encoB.setVisible(true);
+        encoB.setLocationRelativeTo(null);
+        encoB.validate();
     }//GEN-LAST:event_btnEncomiendaBuscaActionPerformed
 
     private void btnEncomiendaViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncomiendaViajeActionPerformed
