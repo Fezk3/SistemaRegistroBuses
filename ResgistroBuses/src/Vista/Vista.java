@@ -22,6 +22,33 @@ public class Vista extends javax.swing.JFrame {
         // luego pasar al main
         this.setLocationRelativeTo(null);
         LlenaComboDestino();
+        llenarComboBus();
+    }
+    
+        public void llenarComboBus() {
+        com.mysql.jdbc.Connection conexion = null;
+
+        try {
+
+            conexion = getConnection();
+            String estado= "mantenimiento";
+            // indicando que mostrar
+            ps = conexion.prepareStatement("select n_unico from bus where estado!='"+estado+"%'" );
+            // Obteniendo el resultado del query
+            rs = ps.executeQuery();
+
+            // check si rs tiene contenido
+            while (rs.next()) {
+                busEspe.addItem(rs.getString("n_unico"));
+
+            }
+
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
     }
     
     public void LlenaComboDestino(){
@@ -121,6 +148,12 @@ public class Vista extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         cajadestino = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
+        etiquetaPrecio = new javax.swing.JLabel();
+        precio = new javax.swing.JTextField();
+        etiquetaViaje = new javax.swing.JLabel();
+        viajeEspeci = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        busEspe = new javax.swing.JComboBox<>();
         panelCompraTicket = new javax.swing.JPanel();
         btnCompraTicket = new javax.swing.JButton();
         etiquetaNombre = new javax.swing.JLabel();
@@ -458,6 +491,12 @@ public class Vista extends javax.swing.JFrame {
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Hacer Encomienda");
 
+        etiquetaPrecio.setText("Precio por Peso:");
+
+        etiquetaViaje.setText("Numero de viaje:");
+
+        jLabel4.setText("Numero de bus:");
+
         javax.swing.GroupLayout panelEncomiendasLayout = new javax.swing.GroupLayout(panelEncomiendas);
         panelEncomiendas.setLayout(panelEncomiendasLayout);
         panelEncomiendasLayout.setHorizontalGroup(
@@ -479,7 +518,21 @@ public class Vista extends javax.swing.JFrame {
                                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(peso, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                                     .addComponent(cajaPara, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cajaDe)))
+                                    .addComponent(cajaDe))
+                                .addGap(151, 151, 151)
+                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                                        .addComponent(etiquetaPrecio)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(etiquetaViaje)
+                                            .addComponent(jLabel4))
+                                        .addGap(18, 18, 18)
+                                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(viajeEspeci)
+                                            .addComponent(busEspe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                             .addGroup(panelEncomiendasLayout.createSequentialGroup()
                                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -488,7 +541,7 @@ public class Vista extends javax.swing.JFrame {
                                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cajasalida, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                     .addComponent(cajadestino))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEncomiendasLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2)
@@ -502,15 +555,21 @@ public class Vista extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetapeso)
-                    .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaPrecio)
+                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetade)
-                    .addComponent(cajaDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cajaDe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaViaje)
+                    .addComponent(viajeEspeci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetapara)
-                    .addComponent(cajaPara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cajaPara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(busEspe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetasalida)
@@ -521,7 +580,7 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(cajadestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         panelCompraTicket.setBackground(new java.awt.Color(51, 153, 255));
@@ -953,6 +1012,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnRetiroEncomi;
     private javax.swing.JButton btnSig;
     private javax.swing.JLabel bus;
+    private javax.swing.JComboBox<String> busEspe;
     private javax.swing.JTextField cajaDe;
     private javax.swing.JTextField cajaNombre;
     private javax.swing.JTextField cajaPara;
@@ -981,8 +1041,10 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetaNTick;
     private javax.swing.JLabel etiquetaNombre;
     private javax.swing.JLabel etiquetaNombreChofer;
+    private javax.swing.JLabel etiquetaPrecio;
     private javax.swing.JLabel etiquetaSale;
     private javax.swing.JLabel etiquetaTiempo;
+    private javax.swing.JLabel etiquetaViaje;
     private javax.swing.JLabel etiquetabus;
     private javax.swing.JLabel etiquetade;
     private javax.swing.JLabel etiquetadia;
@@ -993,6 +1055,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
     private javax.swing.JPanel panelCompraTicket;
@@ -1002,8 +1065,10 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JPanel panelInfoTickets;
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JTextField peso;
+    private javax.swing.JTextField precio;
     private javax.swing.JLabel sale;
     private javax.swing.JLabel ticketN;
     private javax.swing.JLabel tiempoE;
+    private javax.swing.JTextField viajeEspeci;
     // End of variables declaration//GEN-END:variables
 }
