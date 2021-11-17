@@ -27,8 +27,8 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
     public VistaEncomiendaCliente() {
         initComponents();
     }
-    
-        public Connection getConnection() throws SQLException {
+
+    public Connection getConnection() throws SQLException {
 
         Connection conexion = null;
 
@@ -64,7 +64,6 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
         espacioHoraEntrega.setText(null);
 
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -192,6 +191,11 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
         btnBuscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
         btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -377,11 +381,11 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
 
     private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
 
-        if(espacioNumeroEncomiento.getText().equals("")){
-             JOptionPane.showMessageDialog(null, "Seleccione un cliente antes de avanzar");
-             return;
+        if (espacioNumeroEncomiento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Seleccione un cliente antes de avanzar");
+            return;
         }
-        
+
         Connection conexion = null;
 
         try {
@@ -391,13 +395,14 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             // indicando que mostrar
             ps = conexion.prepareStatement("select codigo,Viaje_idViaje,precioXpeso,estado,Cliente_cedula,para,lugar_salida,lugar_destino, fecha_salida,fecha_llegada, fecha_entrega,"
                     + "hora_salida,hora_llegada, hora_entrega, n_unico from encomienda inner join viaje on viaje.idViaje=encomienda.Viaje_idViaje inner join bus on viaje.bus_n_unico=bus.n_unico"
-                    + " where codigo=?");
-            ps.setInt(1, 0);
+                    + " where Cliente_cedula=?");
+            ps.setInt(1, Integer.parseInt(cedula.getText()));
 
             // Obteniendo el resultado del query
             rs = ps.executeQuery();
 
             // check si rs tiene contenido
+            rs.next();
             if (rs.next()) {
 
                 espacioNumeroEncomiento.setText(String.valueOf(rs.getInt("codigo")));
@@ -428,6 +433,52 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             System.err.println("ERROR, " + e);
         }
     }//GEN-LAST:event_botonSiguienteActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+
+        Connection conexion = null;
+
+        try {
+
+            conexion = getConnection();
+
+            // indicando que mostrar
+            ps = conexion.prepareStatement("select * from encomienda where Cliente_cedula=?");
+            ps.setString(1, cedula.getText());
+
+            // Obteniendo el resultado del query
+            rs = ps.executeQuery();
+
+            // check si rs tiene contenido
+            if (rs.next()) {
+                espacioNumeroEncomiento.setText(String.valueOf(rs.getInt("codigo")));
+                espacioNumeroViaje.setText(rs.getString("Viaje_idViaje"));
+                espacioPrecio.setText(rs.getString("precioXpeso"));
+                espacioEstado.setText(rs.getString("estado"));
+                espacioCedulaEmisor.setText(rs.getString("Cliente_cedula"));
+                espacioNombreReceptor.setText(rs.getString("para"));
+                espacioLugarSalida.setText(rs.getString("lugar_salida"));
+                espacioLugarLLegada.setText(rs.getString("lugar_destino"));
+                espacioFechaSalida.setText(String.valueOf(rs.getDate("fecha_salida")));
+                espacioFechaLlegada.setText(String.valueOf(rs.getDate("fecha_llegada")));
+                espacioFechaEntrega.setText(String.valueOf(rs.getDate("fecha_entrega")));
+                espacioHoraSalida.setText(rs.getString("hora_salida"));
+                espacioHoraLlegada.setText(rs.getString("hora_llegada"));
+                espacioHoraEntrega.setText(rs.getString("hora_entrega"));
+                numBus.setText(String.valueOf(rs.getInt("n_unico")));
+            } else {
+                JOptionPane.showMessageDialog(null, "No existe una persona con esa clave");
+                cedula.setText(null);
+            }
+
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
+
+    }//GEN-LAST:event_btnBuscarActionPerformed
 
     /**
      * @param args the command line arguments
