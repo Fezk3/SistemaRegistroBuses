@@ -23,6 +23,7 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
     public static final String password = "MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
+    int contador = 0;
 
     public VistaEncomiendaCliente() {
         initComponents();
@@ -402,7 +403,6 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             rs = ps.executeQuery();
 
             // check si rs tiene contenido
-            rs.next();
             if (rs.next()) {
 
                 espacioNumeroEncomiento.setText(String.valueOf(rs.getInt("codigo")));
@@ -443,7 +443,9 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             conexion = getConnection();
 
             // indicando que mostrar
-            ps = conexion.prepareStatement("select * from encomienda where Cliente_cedula=?");
+            ps = conexion.prepareStatement("select codigo,Viaje_idViaje,precioXpeso,estado,Cliente_cedula,para,lugar_salida,lugar_destino, fecha_salida,fecha_llegada, fecha_entrega,"
+                    + "hora_salida,hora_llegada, hora_entrega, n_unico from encomienda inner join viaje on viaje.idViaje=encomienda.Viaje_idViaje inner join bus on viaje.bus_n_unico=bus.n_unico"
+                    + " where Cliente_cedula=?");;
             ps.setString(1, cedula.getText());
 
             // Obteniendo el resultado del query
