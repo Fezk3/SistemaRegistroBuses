@@ -450,7 +450,7 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             rs = ps.executeQuery();
 
             // check si rs tiene contenido
-            if (rs.next()) {
+            if (rs.first()) {
                 espacioNumeroEncomiento.setText(String.valueOf(rs.getInt("codigo")));
                 espacioNumeroViaje.setText(rs.getString("Viaje_idViaje"));
                 espacioPrecio.setText(rs.getString("precioXpeso"));
