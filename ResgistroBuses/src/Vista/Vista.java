@@ -33,7 +33,7 @@ public class Vista extends javax.swing.JFrame {
             conexion = getConnection();
             String estado= "mantenimiento";
             // indicando que mostrar
-            ps = conexion.prepareStatement("select n_unico from bus where estado!='"+estado+"%'" );
+            ps = conexion.prepareStatement("select n_unico from bus where estadoB!='"+estado+"%'" );
             // Obteniendo el resultado del query
             rs = ps.executeQuery();
 
