@@ -421,7 +421,6 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
                 espacioHoraLlegada.setText(rs.getString("hora_llegada"));
                 espacioHoraEntrega.setText(rs.getString("hora_entrega"));
                 numBus.setText(String.valueOf(rs.getInt("n_unico")));
-
             }
 
             ps.close();

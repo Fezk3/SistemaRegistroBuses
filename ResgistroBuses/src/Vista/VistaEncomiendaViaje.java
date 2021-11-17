@@ -7,10 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Admin
- */
 public class VistaEncomiendaViaje extends javax.swing.JFrame {
 
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
@@ -18,6 +14,7 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
     public static final String password = "MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
+    int cont = 0;
 
     public VistaEncomiendaViaje() {
         initComponents();
@@ -66,50 +63,84 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
     private void initComponents() {
 
         panelPrin = new javax.swing.JPanel();
-        numBus = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        etiquetaPrecioEncomienda = new javax.swing.JLabel();
+        espacioEstado = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
+        numBus = new javax.swing.JTextField();
+        espacioNumeroEncomiento = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        espacioNumeroViaje = new javax.swing.JTextField();
+        etiquetaInformacionEncomienda = new javax.swing.JLabel();
+        etiquetaLugarSalida = new javax.swing.JLabel();
+        espacioLugarSalida = new javax.swing.JTextField();
+        espacioHoraEntrega = new javax.swing.JTextField();
+        botonSiguiente = new javax.swing.JButton();
+        etiquetaEstado = new javax.swing.JLabel();
+        espacioFechaEntrega = new javax.swing.JTextField();
+        espacioHoraLlegada = new javax.swing.JTextField();
+        etiquetaNumeroViaje = new javax.swing.JLabel();
+        espacioHoraSalida = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        etiqutaNumeroEncomienda = new javax.swing.JLabel();
         etiquetaHoraEntrega = new javax.swing.JLabel();
         etiquetaHoraLlegada = new javax.swing.JLabel();
         labelLlegada = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
         viaje = new javax.swing.JTextField();
         etiquetaHoraSalida = new javax.swing.JLabel();
         horaSalida = new javax.swing.JLabel();
-        etiquetaced = new javax.swing.JLabel();
         etiquetaLugarLlegada = new javax.swing.JLabel();
-        espacioFechaLlegada = new javax.swing.JTextField();
-        espacioNumeroEncomiento = new javax.swing.JTextField();
+        etiquetaced = new javax.swing.JLabel();
         espacioNombreReceptor = new javax.swing.JTextField();
-        etiqutaNumeroEncomienda = new javax.swing.JLabel();
-        espacioFechaSalida = new javax.swing.JTextField();
-        espacioNumeroViaje = new javax.swing.JTextField();
+        espacioFechaLlegada = new javax.swing.JTextField();
         etiquetaNombreReceptor = new javax.swing.JLabel();
-        etiquetaLugarSalida = new javax.swing.JLabel();
-        etiquetaInformacionEncomienda = new javax.swing.JLabel();
-        espacioHoraEntrega = new javax.swing.JTextField();
-        espacioLugarLLegada = new javax.swing.JTextField();
+        espacioFechaSalida = new javax.swing.JTextField();
         jSeparator6 = new javax.swing.JSeparator();
-        espacioPrecio = new javax.swing.JTextField();
-        espacioLugarSalida = new javax.swing.JTextField();
+        espacioLugarLLegada = new javax.swing.JTextField();
         etiquetaCedulaEmisor = new javax.swing.JLabel();
-        etiquetaEstado = new javax.swing.JLabel();
-        espacioCedulaEmisor = new javax.swing.JTextField();
-        espacioHoraLlegada = new javax.swing.JTextField();
+        espacioPrecio = new javax.swing.JTextField();
         jSeparator4 = new javax.swing.JSeparator();
-        espacioFechaEntrega = new javax.swing.JTextField();
-        espacioEstado = new javax.swing.JTextField();
-        etiquetaNumeroViaje = new javax.swing.JLabel();
-        etiquetaPrecioEncomienda = new javax.swing.JLabel();
-        espacioHoraSalida = new javax.swing.JTextField();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        espacioCedulaEmisor = new javax.swing.JTextField();
 
         panelPrin.setBackground(new java.awt.Color(204, 204, 204));
 
+        etiquetaPrecioEncomienda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        etiquetaPrecioEncomienda.setForeground(new java.awt.Color(0, 0, 0));
+        etiquetaPrecioEncomienda.setText("precio de la encomienda:");
+
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Num Bus:");
+
+        etiquetaInformacionEncomienda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        etiquetaInformacionEncomienda.setForeground(new java.awt.Color(0, 0, 0));
+        etiquetaInformacionEncomienda.setText("Informacion de Encomiendas del Cliente");
+
+        etiquetaLugarSalida.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        etiquetaLugarSalida.setForeground(new java.awt.Color(0, 0, 0));
+        etiquetaLugarSalida.setText("lugar de salida:");
+
+        botonSiguiente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        botonSiguiente.setText("Siguiente Encomienda");
+        botonSiguiente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonSiguienteActionPerformed(evt);
+            }
+        });
+
+        etiquetaEstado.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        etiquetaEstado.setForeground(new java.awt.Color(0, 0, 0));
+        etiquetaEstado.setText("estado del paquete:");
+
+        etiquetaNumeroViaje.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        etiquetaNumeroViaje.setForeground(new java.awt.Color(0, 0, 0));
+        etiquetaNumeroViaje.setText("numero de viaje:");
+
         jLabel1.setForeground(new java.awt.Color(51, 51, 51));
         jLabel1.setText("Hora de entrega:");
+
+        etiqutaNumeroEncomienda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        etiqutaNumeroEncomienda.setForeground(new java.awt.Color(0, 0, 0));
+        etiqutaNumeroEncomienda.setText("numero de encomienda:");
 
         etiquetaHoraEntrega.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaHoraEntrega.setForeground(new java.awt.Color(0, 0, 0));
@@ -121,9 +152,6 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
 
         labelLlegada.setForeground(new java.awt.Color(51, 51, 51));
         labelLlegada.setText("Hora de llegada:");
-
-        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel2.setText("Num Bus:");
 
         btnBuscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
@@ -144,45 +172,21 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
         horaSalida.setForeground(new java.awt.Color(51, 51, 51));
         horaSalida.setText("Hora de Salida:");
 
-        etiquetaced.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        etiquetaced.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaced.setText("Digite el id del viaje : ");
-
         etiquetaLugarLlegada.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaLugarLlegada.setForeground(new java.awt.Color(0, 0, 0));
         etiquetaLugarLlegada.setText("lugar de llegada:");
 
-        etiqutaNumeroEncomienda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        etiqutaNumeroEncomienda.setForeground(new java.awt.Color(0, 0, 0));
-        etiqutaNumeroEncomienda.setText("numero de encomienda:");
+        etiquetaced.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        etiquetaced.setForeground(new java.awt.Color(0, 0, 0));
+        etiquetaced.setText("Digite el id del viaje a consular: ");
 
         etiquetaNombreReceptor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaNombreReceptor.setForeground(new java.awt.Color(0, 0, 0));
         etiquetaNombreReceptor.setText("nombre cliente receptor:");
 
-        etiquetaLugarSalida.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        etiquetaLugarSalida.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaLugarSalida.setText("lugar de salida:");
-
-        etiquetaInformacionEncomienda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        etiquetaInformacionEncomienda.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaInformacionEncomienda.setText("Informacion de Encomiendas del Cliente");
-
         etiquetaCedulaEmisor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         etiquetaCedulaEmisor.setForeground(new java.awt.Color(0, 0, 0));
         etiquetaCedulaEmisor.setText("cedula del emisor:");
-
-        etiquetaEstado.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        etiquetaEstado.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaEstado.setText("estado del paquete:");
-
-        etiquetaNumeroViaje.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        etiquetaNumeroViaje.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaNumeroViaje.setText("numero de viaje:");
-
-        etiquetaPrecioEncomienda.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        etiquetaPrecioEncomienda.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaPrecioEncomienda.setText("precio de la encomienda:");
 
         javax.swing.GroupLayout panelPrinLayout = new javax.swing.GroupLayout(panelPrin);
         panelPrin.setLayout(panelPrinLayout);
@@ -191,31 +195,37 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
             .addGroup(panelPrinLayout.createSequentialGroup()
                 .addGap(100, 100, 100)
                 .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(etiquetaHoraLlegada)
+                    .addGroup(panelPrinLayout.createSequentialGroup()
+                        .addComponent(etiquetaHoraLlegada)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(panelPrinLayout.createSequentialGroup()
                         .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etiquetaHoraEntrega)
                             .addComponent(etiquetaHoraSalida))
                         .addGap(18, 18, 18)
                         .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(espacioFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(espacioFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(espacioFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(panelPrinLayout.createSequentialGroup()
-                        .addComponent(horaSalida)
+                            .addGroup(panelPrinLayout.createSequentialGroup()
+                                .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(espacioFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(espacioFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(122, 122, 122)
+                                .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(panelPrinLayout.createSequentialGroup()
+                                        .addComponent(horaSalida)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(espacioHoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPrinLayout.createSequentialGroup()
+                                        .addComponent(labelLlegada)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(espacioHoraLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(panelPrinLayout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(espacioHoraEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(espacioFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(espacioHoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPrinLayout.createSequentialGroup()
-                        .addComponent(labelLlegada)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(espacioHoraLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(panelPrinLayout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(18, 18, 18)
-                        .addComponent(espacioHoraEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(161, 161, 161))
+                        .addComponent(botonSiguiente)
+                        .addGap(53, 53, 53))))
             .addGroup(panelPrinLayout.createSequentialGroup()
                 .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPrinLayout.createSequentialGroup()
@@ -291,7 +301,7 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
                     .addComponent(etiquetaced, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(viaje, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(etiquetaInformacionEncomienda)
                 .addGap(41, 41, 41)
                 .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -324,32 +334,26 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
                 .addGap(23, 23, 23)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(horaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(espacioHoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaHoraSalida)
+                    .addComponent(espacioFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(labelLlegada)
+                    .addComponent(espacioHoraLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(etiquetaHoraLlegada)
+                    .addComponent(espacioFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelPrinLayout.createSequentialGroup()
-                        .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etiquetaHoraSalida)
-                            .addComponent(espacioFechaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etiquetaHoraLlegada)
-                            .addComponent(espacioFechaLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etiquetaHoraEntrega)
-                            .addComponent(espacioFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(panelPrinLayout.createSequentialGroup()
-                        .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(horaSalida, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(espacioHoraSalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(labelLlegada)
-                            .addComponent(espacioHoraLlegada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(espacioHoraEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(33, 33, 33))
+                    .addComponent(etiquetaHoraEntrega)
+                    .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(espacioFechaEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1)
+                        .addComponent(espacioHoraEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botonSiguiente)))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -366,6 +370,58 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void botonSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonSiguienteActionPerformed
+
+        
+        if (espacioNumeroEncomiento.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Seleccione un viaje antes de avanzar");
+            return;
+        }
+
+        Connection conexion = null;
+
+        try {
+
+            conexion = getConnection();
+
+            // indicando que mostrar
+            ps = conexion.prepareStatement("select codigo,Viaje_idViaje,precioXpeso,estado,Cliente_cedula,para,lugar_salida,lugar_destino, fecha_salida,fecha_llegada, fecha_entrega,"
+                + "hora_salida,hora_llegada, hora_entrega, n_unico from encomienda inner join viaje on viaje.idViaje=encomienda.Viaje_idViaje inner join bus on viaje.bus_n_unico=bus.n_unico"
+                + " where Viaje_idViaje=?");
+            ps.setInt(1, Integer.parseInt(viaje.getText()));
+
+            // Obteniendo el resultado del query
+            rs = ps.executeQuery();
+
+            // check si rs tiene contenido
+            while (rs.next()) {
+
+                espacioNumeroEncomiento.setText(String.valueOf(rs.getInt("codigo")));
+                espacioNumeroViaje.setText(rs.getString("Viaje_idViaje"));
+                espacioPrecio.setText(rs.getString("precioXpeso"));
+                espacioEstado.setText(rs.getString("estado"));
+                espacioCedulaEmisor.setText(rs.getString("Cliente_cedula"));
+                espacioNombreReceptor.setText(rs.getString("para"));
+                espacioLugarSalida.setText(rs.getString("lugar_salida"));
+                espacioLugarLLegada.setText(rs.getString("lugar_destino"));
+                espacioFechaSalida.setText(String.valueOf(rs.getDate("fecha_salida")));
+                espacioFechaLlegada.setText(String.valueOf(rs.getDate("fecha_llegada")));
+                espacioFechaEntrega.setText(String.valueOf(rs.getDate("fecha_entrega")));
+                espacioHoraSalida.setText(rs.getString("hora_salida"));
+                espacioHoraLlegada.setText(rs.getString("hora_llegada"));
+                espacioHoraEntrega.setText(rs.getString("hora_entrega"));
+                numBus.setText(String.valueOf(rs.getInt("n_unico")));
+
+            }
+
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
+    }//GEN-LAST:event_botonSiguienteActionPerformed
+
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
 
         Connection conexion = null;
@@ -376,15 +432,15 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
 
             // indicando que mostrar
             ps = conexion.prepareStatement("select codigo,Viaje_idViaje,precioXpeso,estado,Cliente_cedula,para,lugar_salida,lugar_destino, fecha_salida,fecha_llegada, fecha_entrega,"
-                    + "hora_salida,hora_llegada, hora_entrega, n_unico from encomienda inner join viaje on viaje.idViaje=encomienda.Viaje_idViaje inner join bus on viaje.bus_n_unico=bus.n_unico"
-                    + " where Viaje_idViaje=?");
-            ps.setInt(1, Integer.valueOf(viaje.getText()));
+                + "hora_salida,hora_llegada, hora_entrega, n_unico from encomienda inner join viaje on viaje.idViaje=encomienda.Viaje_idViaje inner join bus on viaje.bus_n_unico=bus.n_unico"
+                + " where Viaje_idViaje=?");
+            ps.setString(1, viaje.getText());
 
             // Obteniendo el resultado del query
             rs = ps.executeQuery();
 
             // check si rs tiene contenido
-            if (rs.next()) {
+            if (rs.first()) {
                 espacioNumeroEncomiento.setText(String.valueOf(rs.getInt("codigo")));
                 espacioNumeroViaje.setText(rs.getString("Viaje_idViaje"));
                 espacioPrecio.setText(rs.getString("precioXpeso"));
@@ -449,6 +505,7 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonSiguiente;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JTextField espacioCedulaEmisor;
     private javax.swing.JTextField espacioEstado;
