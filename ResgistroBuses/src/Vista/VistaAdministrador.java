@@ -20,14 +20,13 @@ public class VistaAdministrador extends javax.swing.JFrame {
 
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = /*"MakI-0*1"*/ "chismosear";
+    public static final String password = "MakI-0*1";// "chismosear";
     PreparedStatement ps;
     ResultSet rs;
 
     public VistaAdministrador() {
         initComponents();
         llenarComboBus();
-        llenarComboViajes();
     }
 
     public com.mysql.jdbc.Connection getConnection() {
@@ -63,7 +62,6 @@ public class VistaAdministrador extends javax.swing.JFrame {
             // check si rs tiene contenido
             while (rs.next()) {
                 comboBus.addItem(rs.getString("n_unico"));
-                comboBus1.addItem(rs.getString("n_unico"));
             }
 
             ps.close();
@@ -75,32 +73,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
     }
 
     
-    public void llenarComboViajes(){
-        com.mysql.jdbc.Connection conexion = null;
-
-        try {
-
-            conexion = getConnection();
-            // indicando que mostrar
-            ps = conexion.prepareStatement("select idViaje from viaje" );
-            // Obteniendo el resultado del query
-            rs = ps.executeQuery();
-            
-            // check si rs tiene contenido
-            
-            while (rs.next()) {
-                
-                comboViajesModificar.addItem(rs.getString("idViaje"));
-                
-            }
-
-            ps.close();
-            conexion.close();
-
-        } catch (SQLException e) {
-            System.err.println("ERROR, " + e);
-        }
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
