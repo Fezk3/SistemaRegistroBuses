@@ -404,7 +404,7 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             rs = ps.executeQuery();
 
             // check si rs tiene contenido
-            if (rs.next()) {
+            while (rs.next()) {
 
                 espacioNumeroEncomiento.setText(String.valueOf(rs.getInt("codigo")));
                 espacioNumeroViaje.setText(rs.getString("Viaje_idViaje"));
@@ -422,9 +422,6 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
                 espacioHoraEntrega.setText(rs.getString("hora_entrega"));
                 numBus.setText(String.valueOf(rs.getInt("n_unico")));
 
-            } else {
-                JOptionPane.showMessageDialog(null, "No hay mas encomiendas");
-                limpiar();
             }
 
             ps.close();
@@ -446,7 +443,7 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             // indicando que mostrar
             ps = conexion.prepareStatement("select codigo,Viaje_idViaje,precioXpeso,estado,Cliente_cedula,para,lugar_salida,lugar_destino, fecha_salida,fecha_llegada, fecha_entrega,"
                     + "hora_salida,hora_llegada, hora_entrega, n_unico from encomienda inner join viaje on viaje.idViaje=encomienda.Viaje_idViaje inner join bus on viaje.bus_n_unico=bus.n_unico"
-                    + " where Cliente_cedula=?");;
+                    + " where Cliente_cedula=?");
             ps.setString(1, cedula.getText());
 
             // Obteniendo el resultado del query
