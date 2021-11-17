@@ -713,7 +713,7 @@ public class Vista extends javax.swing.JFrame {
         etiquetaAsiento.setForeground(new java.awt.Color(255, 255, 255));
         etiquetaAsiento.setText("Numero de asiento : ");
 
-        comboAsiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", " " }));
+        comboAsiento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6" }));
 
         javax.swing.GroupLayout panelCompraTicketLayout = new javax.swing.GroupLayout(panelCompraTicket);
         panelCompraTicket.setLayout(panelCompraTicketLayout);
