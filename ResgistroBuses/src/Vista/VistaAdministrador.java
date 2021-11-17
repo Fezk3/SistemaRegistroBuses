@@ -20,7 +20,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
 
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = /*"MakI-0*1"*/ "chismosear";
+    public static final String password = "MakI-0*1";// "chismosear";
     PreparedStatement ps;
     ResultSet rs;
 
