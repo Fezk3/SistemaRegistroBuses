@@ -13,7 +13,7 @@ public class Vista extends javax.swing.JFrame {
     // NECESARIO PARA PODER CONECTAR A LA BASE
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password ="MakI-0*1";//"chismosear";//"MakI-0*1";
+    public static final String password = "MakI-0*1";//"chismosear";//"MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
 
@@ -24,16 +24,16 @@ public class Vista extends javax.swing.JFrame {
         LlenaComboDestino();
         llenarComboBus();
     }
-    
-        public void llenarComboBus() {
+
+    public void llenarComboBus() {
         com.mysql.jdbc.Connection conexion = null;
 
         try {
 
             conexion = getConnection();
-            String estado= "mantenimiento";
+            String estado = "mantenimiento";
             // indicando que mostrar
-            ps = conexion.prepareStatement("select n_unico from bus where estadoB!='"+estado+"%'" );
+            ps = conexion.prepareStatement("select n_unico from bus where estadoB!='" + estado + "%'");
             // Obteniendo el resultado del query
             rs = ps.executeQuery();
 
@@ -50,8 +50,8 @@ public class Vista extends javax.swing.JFrame {
             System.err.println("ERROR, " + e);
         }
     }
-    
-    public void LlenaComboDestino(){
+
+    public void LlenaComboDestino() {
         com.mysql.jdbc.Connection conexion = null;
 
         try {
@@ -1003,8 +1003,8 @@ public class Vista extends javax.swing.JFrame {
             ps = conexion.prepareStatement("select dia,sale_de, destino, tiempo_estimado, costo, cantidad_KM, n_unico "
                     + "from viaje inner join bus on viaje.bus_n_unico=bus.n_unico"
                     + " where dia=? and destino=?");
-            ps.setString(1,comboSemana.getSelectedItem().toString());
-            ps.setString(2,comboDestino.getSelectedItem().toString());
+            ps.setString(1, comboSemana.getSelectedItem().toString());
+            ps.setString(2, comboDestino.getSelectedItem().toString());
             // Obteniendo el resultado del query
             rs = ps.executeQuery();
 
@@ -1016,7 +1016,7 @@ public class Vista extends javax.swing.JFrame {
                 costo.setText(rs.getString("costo"));
                 KM.setText(rs.getString("cantidad_KM"));
                 bus.setText(String.valueOf(rs.getString("n_unico")));
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "No existe ese viaje");
                 sale.setText(null);
@@ -1036,22 +1036,21 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnActualizaViajeActionPerformed
 
     private void btnInfoEncomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInfoEncomiActionPerformed
-       
-        
+
         VistaEncomienda enco = new VistaEncomienda();
         enco.setVisible(true);
         enco.setLocationRelativeTo(null);
         enco.validate();
-        
+
     }//GEN-LAST:event_btnInfoEncomiActionPerformed
 
     private void btnRetiroEncomiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetiroEncomiActionPerformed
-        
+
         VistaRetiroEncomienda encoR = new VistaRetiroEncomienda();
         encoR.setVisible(true);
         encoR.setLocationRelativeTo(null);
         encoR.validate();
-                
+
     }//GEN-LAST:event_btnRetiroEncomiActionPerformed
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
@@ -1062,7 +1061,10 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAdminActionPerformed
 
     private void btnEncomiendaBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncomiendaBuscaActionPerformed
-        // TODO add your handling code here:
+        VistaEncomiendaBuscada encoB = new VistaEncomiendaBuscada();
+        encoB.setVisible(true);
+        encoB.setLocationRelativeTo(null);
+        encoB.validate();
     }//GEN-LAST:event_btnEncomiendaBuscaActionPerformed
 
     private void btnEncomiendaViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncomiendaViajeActionPerformed
@@ -1070,7 +1072,10 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncomiendaViajeActionPerformed
 
     private void btnEncomiendaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncomiendaClienteActionPerformed
-        // TODO add your handling code here:
+        VistaEncomiendaCliente encoC = new VistaEncomiendaCliente();
+        encoC.setVisible(true);
+        encoC.setLocationRelativeTo(null);
+        encoC.validate();
     }//GEN-LAST:event_btnEncomiendaClienteActionPerformed
 
     public static void main(String args[]) {
@@ -1083,7 +1088,7 @@ public class Vista extends javax.swing.JFrame {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;  
+                    break;
                 }
             }
         } catch (ClassNotFoundException ex) {
