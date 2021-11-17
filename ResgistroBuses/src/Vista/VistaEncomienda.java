@@ -69,6 +69,7 @@ public class VistaEncomienda extends javax.swing.JFrame {
         espacioHoraSalida.setText(null);
         espacioHoraLlegada.setText(null);
         espacioHoraEntrega.setText(null);
+        numBus.setText(null);
 
     }
 
