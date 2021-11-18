@@ -17,7 +17,7 @@ public class Vista extends javax.swing.JFrame {
     // NECESARIO PARA PODER CONECTAR A LA BASE
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = "chismosear";//MakI-0*1";
+    public static final String password = "MakI-0*1";//MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
     SimpleDateFormat formato;
