@@ -98,8 +98,8 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
                         .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelPrinLayout.createSequentialGroup()
                         .addGap(59, 59, 59)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 80, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 883, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
         panelPrinLayout.setVerticalGroup(
             panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
