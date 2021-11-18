@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
@@ -28,9 +30,7 @@ public class Vista extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         LlenaComboDestino();
         iniciaModelo();
-        viaje.setVisible(false);
     }
-
 
     public void limpiarT() {
 
@@ -41,9 +41,9 @@ public class Vista extends javax.swing.JFrame {
         }
 
     }
-    
-    public void limpiarBus(){
-        Icon a =new ImageIcon("src\\imagenes\\bus.png");
+
+    public void limpiarBus() {
+        Icon a = new ImageIcon("src\\imagenes\\bus.png");
         BtnBus1.setIcon(a);
         btnBus2.setIcon(a);
         btnBus3.setIcon(a);
@@ -73,7 +73,7 @@ public class Vista extends javax.swing.JFrame {
 
                 viaje = Integer.parseInt(rs.getString("idViaje"));
                 ps2 = conexion.prepareStatement("select Cliente_cedula, nombre"
-                        + " from ticket  inner join cliente on ticket.Cliente_cedula=cliente.cedula where viaje_idViaje='" + viaje+"'");
+                        + " from ticket  inner join cliente on ticket.Cliente_cedula=cliente.cedula where viaje_idViaje='" + viaje + "'");
                 rs = ps2.executeQuery();
 
                 while (rs.next()) {
@@ -95,7 +95,6 @@ public class Vista extends javax.swing.JFrame {
         }
 
     }
-
 
     public void iniciaModelo() {
 
@@ -200,7 +199,7 @@ public class Vista extends javax.swing.JFrame {
                 ps2 = conexion.prepareStatement("select n_ticket"
                         + " from ticket where viaje_idViaje='" + viaje + "'");
                 rs = ps2.executeQuery();
-                
+
                 cambiaIcono(rs);
 
             } else {
@@ -308,6 +307,7 @@ public class Vista extends javax.swing.JFrame {
         etiquetabus = new javax.swing.JLabel();
         bus = new javax.swing.JLabel();
         viaje = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         panelEncomiendas = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         etiquetapeso = new javax.swing.JLabel();
@@ -635,7 +635,12 @@ public class Vista extends javax.swing.JFrame {
         bus.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         bus.setForeground(new java.awt.Color(255, 255, 255));
 
-        viaje.setText("jLabel9");
+        viaje.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        viaje.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Numero del viaje:");
 
         javax.swing.GroupLayout panelInfoRutasLayout = new javax.swing.GroupLayout(panelInfoRutas);
         panelInfoRutas.setLayout(panelInfoRutasLayout);
@@ -689,14 +694,16 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(etiquetaDestino))
                     .addGroup(panelInfoRutasLayout.createSequentialGroup()
                         .addGap(188, 188, 188)
-                        .addComponent(etiquetaInfoViajeSel)))
+                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel9)
+                            .addComponent(etiquetaInfoViajeSel))
+                        .addGap(18, 18, 18)
+                        .addComponent(viaje, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(67, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelInfoRutasLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnActualizaViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(145, 145, 145)
-                .addComponent(viaje, javax.swing.GroupLayout.PREFERRED_SIZE, 11, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+                .addGap(196, 196, 196))
         );
         panelInfoRutasLayout.setVerticalGroup(
             panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -717,30 +724,32 @@ public class Vista extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(sale, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(etiquetaSale))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(etiquetaDesti)
-                            .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tiempoE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(etiquetaTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etiquetaCosto)
-                            .addComponent(costo, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etiquetaKM)
-                            .addComponent(KM, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(etiquetabus)
-                            .addComponent(bus, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(btnActualizaViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(viaje))
+                            .addComponent(etiquetaSale)))
+                    .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(viaje, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(etiquetaDesti)
+                    .addComponent(destino, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(tiempoE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(etiquetaTiempo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaCosto)
+                    .addComponent(costo, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetaKM)
+                    .addComponent(KM, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(etiquetabus)
+                    .addComponent(bus, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(btnActualizaViaje, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -1274,6 +1283,8 @@ public class Vista extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
+        Connection conexion = null;
+
         if (cajaDe.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Llene todos los espacios");
             return;
@@ -1299,7 +1310,45 @@ public class Vista extends javax.swing.JFrame {
             return;
         }
 
-        Connection conexion = null;
+        // validando detino de la encomienda con el del viaje
+        String desti = cajadestino.getText();
+        String destiV = "", salev="";
+        String saler = cajasalida.getText();
+        
+        conexion = conectado.getConnection();
+        PreparedStatement ps2;
+
+        try {
+
+            ps2 = conexion.prepareStatement("select destino, sale_de from viaje where idViaje=?");
+            ps2.setInt(1, Integer.valueOf(viajeEspeci.getText()));
+            rs = ps2.executeQuery();
+
+            if (rs.next()) {
+                destiV = rs.getString("destino");
+                salev = rs.getString("sale_de");
+            }
+            
+            System.out.println("SALE DE: " + saler);
+            System.out.println("DESTINO: " + destiV);
+
+            if (!destiV.equals(desti.toLowerCase()) || !salev.equals(saler.toLowerCase())) {
+             
+                throw new SQLException();
+            }
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "El destino/salida de la encomienda no coinciden con el los del viaje");
+            return;
+        }
+
+        try {
+            conexion.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(Vista.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
 
         try {
 
@@ -1382,24 +1431,20 @@ public class Vista extends javax.swing.JFrame {
             // INSERSION
             ps = conexion.prepareStatement("insert into cliente(nombre,bus_n_unico) values (?,?)");
             // Indicando datos a insertar (en el orden de las cols)
-            
+
             ps.setString(1, cajaNombre.getText());
             ps.setString(2, bus.getText());
             ps.executeUpdate();
             // Ejecutando la instruccion de Insercion a la DB
-            
 
-                ps2 = conexion.prepareStatement("select cedula from cliente where nombre=?" );
-                ps2.setString(1, cajaNombre.getText() );
-                rs = ps2.executeQuery();
-                
-                
-                if(rs.next()){    
-                    ced = rs.getInt("cedula");
-                }
-                System.out.println("cedula: "+ced);
+            ps2 = conexion.prepareStatement("select cedula from cliente where nombre=?");
+            ps2.setString(1, cajaNombre.getText());
+            rs = ps2.executeQuery();
 
-            
+            if (rs.next()) {
+                ced = rs.getInt("cedula");
+            }
+            System.out.println("cedula: " + ced);
 
             ps = conexion.prepareStatement("insert into ticket(viaje_idViaje,Cliente_cedula) values (?, ?)");
             ps.setInt(1, Integer.parseInt(viaje.getText()));
@@ -1526,6 +1571,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
