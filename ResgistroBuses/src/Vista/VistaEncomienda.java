@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import modelo.Conexion;
 
 /**
  *
@@ -18,11 +19,9 @@ import javax.swing.JOptionPane;
  */
 public class VistaEncomienda extends javax.swing.JFrame {
 
-    public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
-    public static final String usuario = "root";
-    public static final String password = "chismosear";//MakI-0*1";
-    PreparedStatement ps;
-    ResultSet rs;
+    Conexion conectado = new Conexion();
+    PreparedStatement ps=conectado.ps;
+    ResultSet rs=conectado.rs;
 
     public int contador; // para el numero de la encomienda
 
@@ -33,23 +32,7 @@ public class VistaEncomienda extends javax.swing.JFrame {
         initComponents();
     }
 
-    public Connection getConnection() throws SQLException {
-
-        Connection conexion = null;
-
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            conexion = (com.mysql.jdbc.Connection) DriverManager.getConnection(URL, usuario, password);
-
-        } catch (ClassNotFoundException | SQLException e) {
-
-            System.err.println("Error," + e);
-        }
-
-        return conexion;
-
-    }
+     
 
     public void limpiar() {
 
@@ -366,7 +349,7 @@ public class VistaEncomienda extends javax.swing.JFrame {
 
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // indicando que mostrar
             ps = conexion.prepareStatement("select codigo,Viaje_idViaje,precioXpeso,estado,Cliente_cedula,para,lugar_salida,lugar_destino, fecha_salida,fecha_llegada, fecha_entrega,"

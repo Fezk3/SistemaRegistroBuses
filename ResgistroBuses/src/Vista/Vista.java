@@ -2,7 +2,6 @@ package Vista;
 
 import com.mysql.jdbc.Connection;
 import java.sql.Date;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,8 +10,10 @@ import java.time.LocalDateTime;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import modelo.Conexion;
 
 public class Vista extends javax.swing.JFrame {
+<<<<<<< HEAD
 
     // NECESARIO PARA PODER CONECTAR A LA BASE
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
@@ -20,6 +21,12 @@ public class Vista extends javax.swing.JFrame {
     public static final String password = "MakI-0*1";//MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
+=======
+    
+    Conexion conectado = new Conexion();
+    PreparedStatement ps=conectado.ps;
+    ResultSet rs=conectado.rs;
+>>>>>>> 856c99e29b14e1ebd9678ca53513fd1f4dd5a5f6
     SimpleDateFormat formato;
     String fecha, hora;
 
@@ -51,7 +58,7 @@ public class Vista extends javax.swing.JFrame {
 
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // indicando que mostrar
             ps = conexion.prepareStatement("select destino from viaje");
@@ -72,30 +79,13 @@ public class Vista extends javax.swing.JFrame {
         }
     }
 
-    // METODO PARA CONEXION A LA BASE (SE USA EN TODOS LOS QUERIES)
-    public Connection getConnection() {
 
-        Connection conexion = null;
-
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            conexion = (com.mysql.jdbc.Connection) DriverManager.getConnection(URL, usuario, password);
-
-        } catch (ClassNotFoundException | SQLException e) {
-
-            System.err.println("Error," + e);
-        }
-
-        return conexion;
-
-    }
 
     public void llenarDatosBus(int num) {
         Connection conexion = null;
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // indicando que mostrar
             ps = conexion.prepareStatement("select n_unico, nombre"
@@ -128,7 +118,7 @@ public class Vista extends javax.swing.JFrame {
         int viaje;
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // indicando que mostrar
             ps = conexion.prepareStatement("select idViaje"
@@ -1167,7 +1157,7 @@ public class Vista extends javax.swing.JFrame {
 
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // indicando que mostrar
             ps = conexion.prepareStatement("select dia,sale_de, destino, tiempo_estimado, costo, cantidad_KM, n_unico "
@@ -1306,7 +1296,7 @@ public class Vista extends javax.swing.JFrame {
 
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // INSERSION
             ps = conexion.prepareStatement("insert into encomienda (Cliente_cedula, Viaje_idViaje, precioXpeso, para, lugar_salida, lugar_destino, fecha_salida, estado, hora_salida, fecha_llegada, hora_llegada) values (?, ?, ?, ?, ?, ? , ?, ?, ?, ?, ?)");
