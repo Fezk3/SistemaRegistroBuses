@@ -29,15 +29,15 @@ public class Vista extends javax.swing.JFrame {
         LlenaComboDestino();
         iniciaModelo();
     }
-    
-    public void limpiarT(){
-        
-        while(modelo.getRowCount()!=0){
-            
+
+    public void limpiarT() {
+
+        while (modelo.getRowCount() != 0) {
+
             modelo.removeRow(0);
-            
+
         }
-        
+
     }
 
     public void actualizaTabla(int numeroBus) {
@@ -46,7 +46,7 @@ public class Vista extends javax.swing.JFrame {
         PreparedStatement ps2;
         int viaje;
         int cont = 1;
-        
+
         try {
 
             conexion = conectado.getConnection();
@@ -60,13 +60,13 @@ public class Vista extends javax.swing.JFrame {
             if (rs.next()) {
 
                 viaje = Integer.parseInt(rs.getString("idViaje"));
-                ps2 = conexion.prepareStatement("select Cliente_cedula"
-                        + " from ticket where viaje_idViaje='" + viaje + "'");
+                ps2 = conexion.prepareStatement("select Cliente_cedula, nombre"
+                        + " from ticket  inner join cliente on ticket.Cliente_cedula=cliente.cedula where viaje_idViaje='" + viaje+"'");
                 rs = ps2.executeQuery();
 
                 while (rs.next()) {
 
-                    modelo.addRow(new Object[]{cont, rs.getInt("Cliente_cedula")});
+                    modelo.addRow(new Object[]{cont, rs.getInt("Cliente_cedula"), rs.getString("nombre")});
                     cont++;
 
                 }
@@ -88,6 +88,7 @@ public class Vista extends javax.swing.JFrame {
 
         modelo.addColumn("Numero de asiento");
         modelo.addColumn("Cedula del Cliente");
+        modelo.addColumn("Nombre");
         tablaAsientos.setModel(modelo);
 
     }
