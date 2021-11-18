@@ -13,20 +13,10 @@ import javax.swing.JOptionPane;
 import modelo.Conexion;
 
 public class Vista extends javax.swing.JFrame {
-<<<<<<< HEAD
 
-    // NECESARIO PARA PODER CONECTAR A LA BASE
-    public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
-    public static final String usuario = "root";
-    public static final String password = "MakI-0*1";//MakI-0*1";
-    PreparedStatement ps;
-    ResultSet rs;
-=======
-    
     Conexion conectado = new Conexion();
     PreparedStatement ps=conectado.ps;
     ResultSet rs=conectado.rs;
->>>>>>> 856c99e29b14e1ebd9678ca53513fd1f4dd5a5f6
     SimpleDateFormat formato;
     String fecha, hora;
 
