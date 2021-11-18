@@ -276,6 +276,7 @@ public class Vista extends javax.swing.JFrame {
         btnEncomiendaCliente = new javax.swing.JButton();
         btnEncomiendaViaje = new javax.swing.JButton();
         btnEncomiendaBusca = new javax.swing.JButton();
+        btnTicket = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -1030,6 +1031,16 @@ public class Vista extends javax.swing.JFrame {
             }
         });
 
+        btnTicket.setBackground(new java.awt.Color(153, 204, 255));
+        btnTicket.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        btnTicket.setForeground(new java.awt.Color(0, 0, 0));
+        btnTicket.setText("Ver Tickets viaje ");
+        btnTicket.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTicketActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelAdminLayout = new javax.swing.GroupLayout(panelAdmin);
         panelAdmin.setLayout(panelAdminLayout);
         panelAdminLayout.setHorizontalGroup(
@@ -1046,33 +1057,38 @@ public class Vista extends javax.swing.JFrame {
                         .addComponent(btnAdmin)
                         .addComponent(btnInfoEncomi, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnEncomiendaViaje)
-                    .addComponent(btnRetiroEncomi)
-                    .addComponent(btnEncomiendaCliente))
+                    .addComponent(btnRetiroEncomi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnEncomiendaCliente)
+                    .addComponent(btnTicket, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
         );
         panelAdminLayout.setVerticalGroup(
             panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAdminLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(etiquetaGestion)
-                .addGap(27, 27, 27)
                 .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelAdminLayout.createSequentialGroup()
-                        .addComponent(btnEncomiendaCliente)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(25, 25, 25)
+                        .addComponent(etiquetaGestion))
                     .addGroup(panelAdminLayout.createSequentialGroup()
-                        .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnInfoEncomi)
-                            .addComponent(btnEncomiendaViaje))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnEncomiendaBusca)
-                            .addComponent(btnRetiroEncomi))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addGap(62, 62, 62)
+                        .addGroup(panelAdminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelAdminLayout.createSequentialGroup()
+                                .addComponent(btnAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnInfoEncomi)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEncomiendaBusca))
+                            .addGroup(panelAdminLayout.createSequentialGroup()
+                                .addComponent(btnEncomiendaCliente)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEncomiendaViaje)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnRetiroEncomi)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnTicket)))))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
@@ -1310,6 +1326,13 @@ public class Vista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void btnTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTicketActionPerformed
+        VistaTicket encoT = new VistaTicket();
+        encoT.setVisible(true);
+        encoT.setLocationRelativeTo(null);
+        encoT.validate();
+    }//GEN-LAST:event_btnTicketActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1365,6 +1388,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnInfoEncomi;
     private javax.swing.JButton btnRetiroEncomi;
     private javax.swing.JButton btnSig;
+    private javax.swing.JButton btnTicket;
     private javax.swing.JLabel bus;
     private javax.swing.JTextField cajaDe;
     private javax.swing.JTextField cajaNombre;
