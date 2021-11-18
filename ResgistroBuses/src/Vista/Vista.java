@@ -253,6 +253,8 @@ public class Vista extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         fechaE = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        horallega = new javax.swing.JTextField();
         panelCompraTicket = new javax.swing.JPanel();
         btnCompraTicket = new javax.swing.JButton();
         etiquetaNombre = new javax.swing.JLabel();
@@ -731,53 +733,58 @@ public class Vista extends javax.swing.JFrame {
 
         jLabel6.setText("Ejp: año-mes-dia");
 
+        jLabel7.setText("Hora de llegada aprox:");
+
         javax.swing.GroupLayout panelEncomiendasLayout = new javax.swing.GroupLayout(panelEncomiendas);
         panelEncomiendas.setLayout(panelEncomiendasLayout);
         panelEncomiendasLayout.setHorizontalGroup(
             panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelEncomiendasLayout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(jLabel2))
+                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(etiquetapeso)
+                            .addComponent(etiquetade)
+                            .addComponent(etiquetapara))
+                        .addGap(27, 27, 27)
+                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(peso, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
+                            .addComponent(cajaPara, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(cajaDe)))
                     .addGroup(panelEncomiendasLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
                         .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelEncomiendasLayout.createSequentialGroup()
-                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(etiquetapeso)
-                                    .addComponent(etiquetade)
-                                    .addComponent(etiquetapara))
-                                .addGap(27, 27, 27)
-                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(peso, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                                    .addComponent(cajaPara, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cajaDe)))
-                            .addGroup(panelEncomiendasLayout.createSequentialGroup()
-                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(etiquetasalida))
-                                .addGap(18, 18, 18)
-                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cajasalida, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                    .addComponent(cajadestino))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(panelEncomiendasLayout.createSequentialGroup()
-                                    .addComponent(etiquetaPrecio)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(panelEncomiendasLayout.createSequentialGroup()
-                                    .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(etiquetaViaje)
-                                        .addComponent(jLabel4))
-                                    .addGap(18, 18, 18)
-                                    .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(viajeEspeci)
-                                        .addComponent(fechaE)))))))
-                .addGap(66, 66, 66))
+                            .addComponent(jLabel3)
+                            .addComponent(etiquetasalida))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cajasalida, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                            .addComponent(cajadestino))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                            .addComponent(etiquetaPrecio)
+                            .addGap(18, 18, 18)
+                            .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                            .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(etiquetaViaje)
+                                .addComponent(jLabel4))
+                            .addGap(18, 18, 18)
+                            .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(viajeEspeci)
+                                .addComponent(fechaE))))
+                    .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(horallega, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(34, 34, 34))
+            .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                .addGap(217, 217, 217)
+                .addComponent(jLabel2)
+                .addGap(45, 45, 45))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEncomiendasLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2)
@@ -812,9 +819,13 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(cajasalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
-                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(cajadestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(cajadestino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(horallega, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(54, 54, 54)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1265,7 +1276,7 @@ public class Vista extends javax.swing.JFrame {
             conexion = getConnection();
 
             // INSERSION
-            ps = conexion.prepareStatement("insert into encomienda (Cliente_cedula, Viaje_idViaje, precioXpeso, para, lugar_salida, lugar_destino, fecha_salida, estado, hora_salida, fecha_llegada) values (?, ?, ?, ?, ?, ? , ?, ?, ?, ?)");
+            ps = conexion.prepareStatement("insert into encomienda (Cliente_cedula, Viaje_idViaje, precioXpeso, para, lugar_salida, lugar_destino, fecha_salida, estado, hora_salida, fecha_llegada, hora_llegada) values (?, ?, ?, ?, ?, ? , ?, ?, ?, ?, ?)");
             // Indicando datos a insertar (en el orden de las cols)
             ps.setInt(1, Integer.valueOf(cajaDe.getText()));
             ps.setString(2, viajeEspeci.getText());
@@ -1279,7 +1290,7 @@ public class Vista extends javax.swing.JFrame {
             ps.setString(8, "en espera de salida");
             ps.setString(9, hora);
             ps.setDate(10, Date.valueOf(fechaE.getText()));
-
+            ps.setString(11, horallega.getText());
             // Ejecutando la instruccion de Insercion a la DB
             int resultado = ps.executeUpdate();
 
@@ -1397,6 +1408,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetapeso;
     private javax.swing.JLabel etiquetasalida;
     private javax.swing.JTextField fechaE;
+    private javax.swing.JTextField horallega;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -1404,6 +1416,7 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
     private javax.swing.JPanel panelCompraTicket;
