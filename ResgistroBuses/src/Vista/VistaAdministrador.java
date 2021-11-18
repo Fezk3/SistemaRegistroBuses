@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import modelo.Conexion;
 
 /**
  *
@@ -18,44 +19,26 @@ import javax.swing.JOptionPane;
  */
 public class VistaAdministrador extends javax.swing.JFrame {
 
-    public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
-    public static final String usuario = "root";
-    public static final String password = "chismosear";//"MakI-0*1"; 
-    PreparedStatement ps;
-    ResultSet rs;
+    Conexion conectado = new Conexion();
+    PreparedStatement ps = conectado.ps;
+    ResultSet rs = conectado.rs;
 
     public VistaAdministrador() {
         initComponents();
         llenarComboBus();
     }
 
-    public com.mysql.jdbc.Connection getConnection() {
-
-        com.mysql.jdbc.Connection conexion = null;
-
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            conexion = (com.mysql.jdbc.Connection) DriverManager.getConnection(URL, usuario, password);
-
-        } catch (ClassNotFoundException | SQLException e) {
-
-            System.err.println("Error," + e);
-        }
-
-        return conexion;
-
-    }
+    
 
     public void llenarComboBus() {
         com.mysql.jdbc.Connection conexion = null;
 
         try {
 
-            conexion = getConnection();
-            String estado= "mantenimiento";
+            conexion = conectado.getConnection();
+            String estado = "mantenimiento";
             // indicando que mostrar
-            ps = conexion.prepareStatement("select n_unico from bus where estadoB!='"+estado+"'" );
+            ps = conexion.prepareStatement("select n_unico from bus where estadoB!='" + estado + "'");
             // Obteniendo el resultado del query
             rs = ps.executeQuery();
 
@@ -72,8 +55,6 @@ public class VistaAdministrador extends javax.swing.JFrame {
         }
     }
 
-    
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -423,7 +404,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
 
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // INSERSION
             ps = conexion.prepareStatement("insert into chofer(nombre,primer_apellido,tel) values (?, ?, ?)");
@@ -461,7 +442,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
 
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // INSERSION
             ps = conexion.prepareStatement("insert into bus (placa,capacidad,estado,chofer_cedula)  values (?, ?, ?, ?)");
@@ -500,7 +481,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
 
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // INSERSION
             ps = conexion.prepareStatement("insert into viaje (sale_de,destino,tiempo_estimado,costo,cantidad_KM,dia,bus_n_unico)  values (?, ?, ?, ?, ?, ? , ?)");

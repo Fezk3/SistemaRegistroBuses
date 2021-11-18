@@ -9,38 +9,20 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import javax.swing.JOptionPane;
+import modelo.Conexion;
 
 public class VistaRetiroEncomienda extends javax.swing.JFrame {
 
-    public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
-    public static final String usuario = "root";
-    public static final String password = "chismosear";//MakI-0*1";
-    PreparedStatement ps;
-    ResultSet rs;
+    Conexion conectado = new Conexion();
+    PreparedStatement ps=conectado.ps;
+    ResultSet rs=conectado.rs;
 
     public VistaRetiroEncomienda() {
         initComponents();
         setFechaActual();
         setHoraActual();
     }
-
-    public Connection getConnection() throws SQLException {
-
-        Connection conexion = null;
-
-        try {
-
-            Class.forName("com.mysql.jdbc.Driver");
-            conexion = (com.mysql.jdbc.Connection) DriverManager.getConnection(URL, usuario, password);
-
-        } catch (ClassNotFoundException | SQLException e) {
-
-            System.err.println("Error," + e);
-        }
-
-        return conexion;
-
-    }
+ 
 
     private void setFechaActual() {
 
@@ -204,7 +186,7 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
 
         try {
 
-            conexion = getConnection();
+            conexion = conectado.getConnection();
 
             // INSERSION
             ps = conexion.prepareStatement("update encomienda set estado=?, fecha_entrega=?, hora_entrega=? where codigo=? and para=?");
