@@ -21,7 +21,7 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
 
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = "MakI-0*1";
+    public static final String password = "chismosear";//MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
     DefaultTableModel modelo = new DefaultTableModel();
