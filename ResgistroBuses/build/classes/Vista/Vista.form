@@ -158,9 +158,6 @@
                   <Image iconType="3" name="/imagenes/bus.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BtnBus1ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBus2">
               <Properties>
@@ -168,9 +165,6 @@
                   <Image iconType="3" name="/imagenes/bus.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBus2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBus3">
               <Properties>
@@ -178,9 +172,6 @@
                   <Image iconType="3" name="/imagenes/bus.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBus3ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBus4">
               <Properties>
@@ -188,9 +179,6 @@
                   <Image iconType="3" name="/imagenes/bus.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBus4ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBus5">
               <Properties>
@@ -198,9 +186,6 @@
                   <Image iconType="3" name="/imagenes/bus.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBus5ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBus6">
               <Properties>
@@ -208,9 +193,6 @@
                   <Image iconType="3" name="/imagenes/bus.png"/>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBus6ActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>
