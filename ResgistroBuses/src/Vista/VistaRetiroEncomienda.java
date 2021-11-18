@@ -55,7 +55,6 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
         LocalDateTime locaDate = LocalDateTime.now();
         int hours = locaDate.getHour();
         int minutes = locaDate.getMinute();
-        int seconds = locaDate.getSecond();
         hora.setText("" + hours + ":" + minutes);
 
     }

@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,15 +16,33 @@ public class Vista extends javax.swing.JFrame {
     // NECESARIO PARA PODER CONECTAR A LA BASE
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = "chismosear";//"MakI-0*1";
+    public static final String password = "MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
+    SimpleDateFormat formato;
+    String fecha, hora;
 
     public Vista() {
         initComponents();
         // luego pasar al main
         this.setLocationRelativeTo(null);
         LlenaComboDestino();
+    }
+
+    private void setFechaActual() {
+
+        java.util.Date actual = new java.util.Date();
+        formato = new SimpleDateFormat("Y-MM-dd");
+        fecha = formato.format(actual);
+    }
+
+    private void setHoraActual() {
+
+        LocalDateTime locaDate = LocalDateTime.now();
+        int hours = locaDate.getHour();
+        int minutes = locaDate.getMinute();
+        hora = hours + ":" + minutes;
+
     }
 
     public void LlenaComboDestino() {
@@ -120,7 +140,7 @@ public class Vista extends javax.swing.JFrame {
                 viaje = Integer.parseInt(rs.getString("idViaje"));
                 ps2 = conexion.prepareStatement("select n_ticket"
                         + " from ticket where viaje_idViaje='" + viaje + "'");
-                rs=ps2.executeQuery();
+                rs = ps2.executeQuery();
                 while (rs.next()) {
                     cambiaIcono(rs.getInt("n_ticket"));
                 }
@@ -231,7 +251,8 @@ public class Vista extends javax.swing.JFrame {
         etiquetaViaje = new javax.swing.JLabel();
         viajeEspeci = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        busEspe = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        fechaE = new javax.swing.JTextField();
         panelCompraTicket = new javax.swing.JPanel();
         btnCompraTicket = new javax.swing.JButton();
         etiquetaNombre = new javax.swing.JLabel();
@@ -628,7 +649,7 @@ public class Vista extends javax.swing.JFrame {
                     .addGroup(panelInfoRutasLayout.createSequentialGroup()
                         .addGap(188, 188, 188)
                         .addComponent(etiquetaInfoViajeSel)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         panelInfoRutasLayout.setVerticalGroup(
             panelInfoRutasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -684,7 +705,7 @@ public class Vista extends javax.swing.JFrame {
         peso.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         peso.setForeground(new java.awt.Color(0, 0, 0));
 
-        etiquetade.setText("De :");
+        etiquetade.setText("Ced Emi:");
 
         etiquetapara.setText("Para :");
 
@@ -696,12 +717,19 @@ public class Vista extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("Hacer Encomienda");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         etiquetaPrecio.setText("Precio por Peso:");
 
         etiquetaViaje.setText("Numero de viaje:");
 
-        jLabel4.setText("Numero de bus:");
+        jLabel4.setText("Fecha Entrega:");
+
+        jLabel6.setText("Ejp: año-mes-dia");
 
         javax.swing.GroupLayout panelEncomiendasLayout = new javax.swing.GroupLayout(panelEncomiendas);
         panelEncomiendas.setLayout(panelEncomiendasLayout);
@@ -724,21 +752,7 @@ public class Vista extends javax.swing.JFrame {
                                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(peso, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
                                     .addComponent(cajaPara, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(cajaDe))
-                                .addGap(151, 151, 151)
-                                .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(panelEncomiendasLayout.createSequentialGroup()
-                                        .addComponent(etiquetaPrecio)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(panelEncomiendasLayout.createSequentialGroup()
-                                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(etiquetaViaje)
-                                            .addComponent(jLabel4))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(viajeEspeci)
-                                            .addComponent(busEspe, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(cajaDe)))
                             .addGroup(panelEncomiendasLayout.createSequentialGroup()
                                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
@@ -746,8 +760,24 @@ public class Vista extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(cajasalida, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                    .addComponent(cajadestino))))))
-                .addContainerGap(57, Short.MAX_VALUE))
+                                    .addComponent(cajadestino))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6)
+                            .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                                    .addComponent(etiquetaPrecio)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(precio, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(panelEncomiendasLayout.createSequentialGroup()
+                                    .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(etiquetaViaje)
+                                        .addComponent(jLabel4))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(viajeEspeci)
+                                        .addComponent(fechaE)))))))
+                .addGap(66, 66, 66))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelEncomiendasLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jButton2)
@@ -775,11 +805,12 @@ public class Vista extends javax.swing.JFrame {
                     .addComponent(etiquetapara)
                     .addComponent(cajaPara, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(busEspe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fechaE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetasalida)
-                    .addComponent(cajasalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cajasalida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(panelEncomiendasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -1200,6 +1231,74 @@ public class Vista extends javax.swing.JFrame {
         llenarDatosBus(6);
     }//GEN-LAST:event_btnBus6ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        if (cajaDe.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (cajaPara.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (precio.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (cajasalida.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (cajadestino.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (viajeEspeci.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+
+        Connection conexion = null;
+
+        try {
+
+            conexion = getConnection();
+
+            // INSERSION
+            ps = conexion.prepareStatement("insert into encomienda (Cliente_cedula, Viaje_idViaje, precioXpeso, para, lugar_salida, lugar_destino, fecha_salida, estado, hora_salida, fecha_llegada) values (?, ?, ?, ?, ?, ? , ?, ?, ?, ?)");
+            // Indicando datos a insertar (en el orden de las cols)
+            ps.setInt(1, Integer.valueOf(cajaDe.getText()));
+            ps.setString(2, viajeEspeci.getText());
+            ps.setInt(3, Integer.valueOf(precio.getText()));
+            ps.setString(4, cajaPara.getText());
+            ps.setString(5, cajasalida.getText());
+            ps.setString(6, cajadestino.getText());
+            setHoraActual();
+            setFechaActual();
+            ps.setDate(7, Date.valueOf(fecha));
+            ps.setString(8, "en espera de salida");
+            ps.setString(9, hora);
+            ps.setDate(10, Date.valueOf(fechaE.getText()));
+
+            // Ejecutando la instruccion de Insercion a la DB
+            int resultado = ps.executeUpdate();
+
+            if (resultado > 0) {
+                JOptionPane.showMessageDialog(null, "Encomienda realizada exitosamente");
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al ingresar la encomienda");
+            }
+
+            // cerrando conexion con la DB
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -1256,7 +1355,6 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JButton btnRetiroEncomi;
     private javax.swing.JButton btnSig;
     private javax.swing.JLabel bus;
-    private javax.swing.JComboBox<String> busEspe;
     private javax.swing.JTextField cajaDe;
     private javax.swing.JTextField cajaNombre;
     private javax.swing.JTextField cajaPara;
@@ -1298,12 +1396,14 @@ public class Vista extends javax.swing.JFrame {
     private javax.swing.JLabel etiquetapara;
     private javax.swing.JLabel etiquetapeso;
     private javax.swing.JLabel etiquetasalida;
+    private javax.swing.JTextField fechaE;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel panelAdmin;
     private javax.swing.JPanel panelBuses;
     private javax.swing.JPanel panelCompraTicket;
