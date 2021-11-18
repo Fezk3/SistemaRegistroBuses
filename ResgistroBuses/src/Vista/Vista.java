@@ -285,46 +285,16 @@ public class Vista extends javax.swing.JFrame {
         jLabel1.setText("Buses");
 
         BtnBus1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
-        BtnBus1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BtnBus1ActionPerformed(evt);
-            }
-        });
 
         btnBus2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
-        btnBus2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBus2ActionPerformed(evt);
-            }
-        });
 
         btnBus3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
-        btnBus3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBus3ActionPerformed(evt);
-            }
-        });
 
         btnBus4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
-        btnBus4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBus4ActionPerformed(evt);
-            }
-        });
 
         btnBus5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
-        btnBus5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBus5ActionPerformed(evt);
-            }
-        });
 
         btnBus6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/bus.png"))); // NOI18N
-        btnBus6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBus6ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout panelBusesLayout = new javax.swing.GroupLayout(panelBuses);
         panelBuses.setLayout(panelBusesLayout);
@@ -1166,6 +1136,33 @@ public class Vista extends javax.swing.JFrame {
                 costo.setText(rs.getString("costo"));
                 KM.setText(rs.getString("cantidad_KM"));
                 bus.setText(String.valueOf(rs.getString("n_unico")));
+                Icon a = new ImageIcon("src\\imagenes\\bus - copia.png");
+                switch(rs.getInt("n_unico")){
+                    case 1:
+                        BtnBus1.setIcon(a);
+                        llenarDatosBus(1);
+                        break;
+                    case 2:
+                        btnBus2.setIcon(a);
+                        llenarDatosBus(2);
+                        break;
+                    case 3:
+                        btnBus3.setIcon(a);
+                        llenarDatosBus(3);
+                        break;
+                    case 4:
+                        btnBus4.setIcon(a);
+                        llenarDatosBus(4);
+                        break;
+                    case 5:
+                        btnBus5.setIcon(a);
+                        llenarDatosBus(5);
+                        break;
+                    case 6:
+                        btnBus6.setIcon(a);
+                        llenarDatosBus(6);
+                        break;
+                }
 
             } else {
                 JOptionPane.showMessageDialog(null, "No existe ese viaje");
@@ -1230,30 +1227,6 @@ public class Vista extends javax.swing.JFrame {
         encoC.setLocationRelativeTo(null);
         encoC.validate();
     }//GEN-LAST:event_btnEncomiendaClienteActionPerformed
-
-    private void BtnBus1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBus1ActionPerformed
-        llenarDatosBus(1);
-    }//GEN-LAST:event_BtnBus1ActionPerformed
-
-    private void btnBus2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBus2ActionPerformed
-        llenarDatosBus(2);
-    }//GEN-LAST:event_btnBus2ActionPerformed
-
-    private void btnBus3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBus3ActionPerformed
-        llenarDatosBus(3);
-    }//GEN-LAST:event_btnBus3ActionPerformed
-
-    private void btnBus4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBus4ActionPerformed
-        llenarDatosBus(4);
-    }//GEN-LAST:event_btnBus4ActionPerformed
-
-    private void btnBus5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBus5ActionPerformed
-        llenarDatosBus(5);
-    }//GEN-LAST:event_btnBus5ActionPerformed
-
-    private void btnBus6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBus6ActionPerformed
-        llenarDatosBus(6);
-    }//GEN-LAST:event_btnBus6ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
