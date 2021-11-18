@@ -60,7 +60,6 @@ public class VistaTicket extends javax.swing.JFrame {
         btnb = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
 
         tabla.setModel(modelo);
