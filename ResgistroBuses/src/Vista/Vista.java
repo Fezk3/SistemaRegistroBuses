@@ -28,6 +28,7 @@ public class Vista extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         LlenaComboDestino();
         iniciaModelo();
+        viaje.setVisible(false);
     }
 
 
