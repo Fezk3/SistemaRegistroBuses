@@ -16,8 +16,8 @@ import modelo.Conexion;
 public class Vista extends javax.swing.JFrame {
 
     Conexion conectado = new Conexion();
-    PreparedStatement ps=conectado.ps;
-    ResultSet rs=conectado.rs;
+    PreparedStatement ps = conectado.ps;
+    ResultSet rs = conectado.rs;
     SimpleDateFormat formato;
     String fecha, hora;
     DefaultTableModel modelo = new DefaultTableModel();
@@ -30,12 +30,66 @@ public class Vista extends javax.swing.JFrame {
         iniciaModelo();
     }
     
-    public void iniciaModelo(){
+    public void limpiarT(){
         
+        while(modelo.getRowCount()!=0){
+            
+            modelo.removeRow(0);
+            
+        }
+        
+    }
+
+    public void actualizaTabla(int numeroBus) {
+
+        Connection conexion = null;
+        PreparedStatement ps2;
+        int viaje;
+        int cont = 1;
+        
+        try {
+
+            conexion = conectado.getConnection();
+
+            // indicando que mostrar
+            ps = conexion.prepareStatement("select idViaje"
+                    + " from viaje where bus_n_unico='" + numeroBus + "'");
+            // Obteniendo el resultado del query
+            rs = ps.executeQuery();
+            // check si rs tiene contenido
+            if (rs.next()) {
+
+                viaje = Integer.parseInt(rs.getString("idViaje"));
+                ps2 = conexion.prepareStatement("select Cliente_cedula"
+                        + " from ticket where viaje_idViaje='" + viaje + "'");
+                rs = ps2.executeQuery();
+
+                while (rs.next()) {
+
+                    modelo.addRow(new Object[]{cont, rs.getInt("Cliente_cedula")});
+                    cont++;
+
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Este bus no tiene viajes");
+            }
+
+            ps.close();
+            conexion.close();
+
+        } catch (SQLException e) {
+            System.err.println("ERROR, " + e);
+        }
+
+    }
+
+    public void iniciaModelo() {
+
         modelo.addColumn("Numero de asiento");
         modelo.addColumn("Cedula del Cliente");
         tablaAsientos.setModel(modelo);
-        
+
     }
 
     private void setFechaActual() {
@@ -79,8 +133,6 @@ public class Vista extends javax.swing.JFrame {
             System.err.println("ERROR, " + e);
         }
     }
-
-
 
     public void llenarDatosBus(int num) {
         Connection conexion = null;
@@ -173,13 +225,12 @@ public class Vista extends javax.swing.JFrame {
                     asiento6.setIcon(a);
                     break;
 
-                    
             }
             contador++;
         }
     }
-    
-    public void devolverIconos(){
+
+    public void devolverIconos() {
         Icon a = new ImageIcon("src\\imagenes\\seat.png");
         asiento1.setIcon(a);
         asiento2.setIcon(a);
@@ -1079,6 +1130,7 @@ public class Vista extends javax.swing.JFrame {
 
     private void btnActualizaViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizaViajeActionPerformed
         Connection conexion = null;
+        limpiarT();
 
         try {
 
@@ -1102,30 +1154,36 @@ public class Vista extends javax.swing.JFrame {
                 KM.setText(rs.getString("cantidad_KM"));
                 bus.setText(String.valueOf(rs.getString("n_unico")));
                 Icon a = new ImageIcon("src\\imagenes\\bus - copia.png");
-                switch(rs.getInt("n_unico")){
+                switch (rs.getInt("n_unico")) {
                     case 1:
                         BtnBus1.setIcon(a);
                         llenarDatosBus(1);
+                        actualizaTabla(1);
                         break;
                     case 2:
                         btnBus2.setIcon(a);
                         llenarDatosBus(2);
+                        actualizaTabla(2);
                         break;
                     case 3:
                         btnBus3.setIcon(a);
                         llenarDatosBus(3);
+                        actualizaTabla(3);
                         break;
                     case 4:
                         btnBus4.setIcon(a);
                         llenarDatosBus(4);
+                        actualizaTabla(4);
                         break;
                     case 5:
                         btnBus5.setIcon(a);
                         llenarDatosBus(5);
+                        actualizaTabla(5);
                         break;
                     case 6:
                         btnBus6.setIcon(a);
                         llenarDatosBus(6);
+                        actualizaTabla(6);
                         break;
                 }
 
