@@ -371,7 +371,7 @@ public class VistaEncomiendaBuscada extends javax.swing.JFrame {
             // indicando que mostrar
             ps = conexion.prepareStatement("select codigo,Viaje_idViaje,precioXpeso,estado,Cliente_cedula,para,lugar_salida,lugar_destino, fecha_salida,fecha_llegada, fecha_entrega,"
                     + "hora_salida,hora_llegada, hora_entrega, n_unico from encomienda inner join viaje on viaje.idViaje=encomienda.Viaje_idViaje inner join bus on viaje.bus_n_unico=bus.n_unico"
-                    + " where codigo=?");;
+                    + " where codigo=?");
             ps.setInt(1, Integer.valueOf(idEnco.getText()));
 
             // Obteniendo el resultado del query

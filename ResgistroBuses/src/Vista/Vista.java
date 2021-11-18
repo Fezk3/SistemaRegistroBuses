@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -16,7 +17,7 @@ public class Vista extends javax.swing.JFrame {
     // NECESARIO PARA PODER CONECTAR A LA BASE
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = "MakI-0*1";
+    public static final String password = "chismosear";//MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
     SimpleDateFormat formato;
@@ -141,9 +142,8 @@ public class Vista extends javax.swing.JFrame {
                 ps2 = conexion.prepareStatement("select n_ticket"
                         + " from ticket where viaje_idViaje='" + viaje + "'");
                 rs = ps2.executeQuery();
-                while (rs.next()) {
-                    cambiaIcono(rs.getInt("n_ticket"));
-                }
+                devolverIconos();
+                cambiaIcono(rs);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Este bus no tiene viajes");
@@ -157,28 +157,45 @@ public class Vista extends javax.swing.JFrame {
         }
     }
 
-    public void cambiaIcono(int nTicket) {
-        switch (nTicket) {
-            case 1:
-                asiento1.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 2:
-                asiento2.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 3:
-                asiento3.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 4:
-                asiento4.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 5:
-                asiento5.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 6:
-                asiento6.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-        }
+    public void cambiaIcono(ResultSet rs2) throws SQLException {
+        Icon a = new ImageIcon("src\\imagenes\\seat - copia.png");
+        int contador = 1;
+        while (rs2.next()) {
 
+            switch (contador) {
+                case 1:
+                    asiento1.setIcon(a);
+                    break;
+                case 2:
+                    asiento2.setIcon(a);
+                    break;
+                case 3:
+                    asiento3.setIcon(a);
+                    break;
+                case 4:
+                    asiento4.setIcon(a);
+                    break;
+                case 5:
+                    asiento5.setIcon(a);
+                    break;
+                case 6:
+                    asiento6.setIcon(a);
+                    break;
+
+                    
+            }
+            contador++;
+        }
+    }
+    
+    public void devolverIconos(){
+        Icon a = new ImageIcon("src\\imagenes\\seat.png");
+        asiento1.setIcon(a);
+        asiento2.setIcon(a);
+        asiento3.setIcon(a);
+        asiento4.setIcon(a);
+        asiento5.setIcon(a);
+        asiento6.setIcon(a);
     }
 
     @SuppressWarnings("unchecked")
