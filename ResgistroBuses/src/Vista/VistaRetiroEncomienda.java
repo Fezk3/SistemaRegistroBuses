@@ -55,7 +55,6 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
         LocalDateTime locaDate = LocalDateTime.now();
         int hours = locaDate.getHour();
         int minutes = locaDate.getMinute();
-        int seconds = locaDate.getSecond();
         hora.setText("" + hours + ":" + minutes);
 
     }
@@ -177,7 +176,7 @@ public class VistaRetiroEncomienda extends javax.swing.JFrame {
                             .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(56, 56, 56)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(etiquetaHora)
                             .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
