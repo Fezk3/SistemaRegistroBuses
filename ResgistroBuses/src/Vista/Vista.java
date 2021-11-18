@@ -142,7 +142,7 @@ public class Vista extends javax.swing.JFrame {
                 ps2 = conexion.prepareStatement("select n_ticket"
                         + " from ticket where viaje_idViaje='" + viaje + "'");
                 rs = ps2.executeQuery();
-
+                devolverIconos();
                 cambiaIcono(rs);
 
             } else {
@@ -158,23 +158,44 @@ public class Vista extends javax.swing.JFrame {
     }
 
     public void cambiaIcono(ResultSet rs2) throws SQLException {
-        Icon a = new ImageIcon("src\\imagenes\\seat.png");
+        Icon a = new ImageIcon("src\\imagenes\\seat - copia.png");
+        int contador = 1;
         while (rs2.next()) {
-            
-            if (asiento1.getIcon() == a) {
-                asiento1.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-            } else if (asiento1.getIcon() == a) {
-                asiento2.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-            } else if (asiento1.getIcon() == a) {
-                asiento3.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-            } else if (asiento1.getIcon() == a) {
-                asiento4.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-            } else if (asiento1.getIcon() == a) {
-                asiento5.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-            } else if (asiento1.getIcon() == a) {
-                asiento6.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
+
+            switch (contador) {
+                case 1:
+                    asiento1.setIcon(a);
+                    break;
+                case 2:
+                    asiento2.setIcon(a);
+                    break;
+                case 3:
+                    asiento3.setIcon(a);
+                    break;
+                case 4:
+                    asiento4.setIcon(a);
+                    break;
+                case 5:
+                    asiento5.setIcon(a);
+                    break;
+                case 6:
+                    asiento6.setIcon(a);
+                    break;
+
+                    
             }
+            contador++;
         }
+    }
+    
+    public void devolverIconos(){
+        Icon a = new ImageIcon("src\\imagenes\\seat.png");
+        asiento1.setIcon(a);
+        asiento2.setIcon(a);
+        asiento3.setIcon(a);
+        asiento4.setIcon(a);
+        asiento5.setIcon(a);
+        asiento6.setIcon(a);
     }
 
     @SuppressWarnings("unchecked")
