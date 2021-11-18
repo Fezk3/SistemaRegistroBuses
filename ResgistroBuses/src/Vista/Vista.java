@@ -126,7 +126,7 @@ public class Vista extends javax.swing.JFrame {
                 }
 
             } else {
-                JOptionPane.showMessageDialog(null, "No existe este bus");
+                JOptionPane.showMessageDialog(null, "Este bus no tiene viajes");
             }
 
             ps.close();
