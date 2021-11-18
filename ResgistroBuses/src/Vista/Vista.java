@@ -30,7 +30,7 @@ public class Vista extends javax.swing.JFrame {
         iniciaModelo();
     }
 
-<<<<<<< HEAD
+
     public void limpiarT() {
 
         while (modelo.getRowCount() != 0) {
@@ -85,8 +85,7 @@ public class Vista extends javax.swing.JFrame {
 
     }
 
-=======
->>>>>>> modi
+
     public void iniciaModelo() {
 
         modelo.addColumn("Numero de asiento");
