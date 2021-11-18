@@ -87,7 +87,7 @@ public class Vista extends javax.swing.JFrame {
     public void iniciaModelo() {
 
         modelo.addColumn("Numero de asiento");
-        modelo.addColumn("Cedula del Cliente");
+        modelo.addColumn("Numero de Cliente");
         modelo.addColumn("Nombre");
         tablaAsientos.setModel(modelo);
 
