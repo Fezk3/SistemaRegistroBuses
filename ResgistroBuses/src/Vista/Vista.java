@@ -22,33 +22,6 @@ public class Vista extends javax.swing.JFrame {
         // luego pasar al main
         this.setLocationRelativeTo(null);
         LlenaComboDestino();
-        llenarComboBus();
-    }
-
-    public void llenarComboBus() {
-        com.mysql.jdbc.Connection conexion = null;
-
-        try {
-
-            conexion = getConnection();
-            String estado = "mantenimiento";
-            // indicando que mostrar
-            ps = conexion.prepareStatement("select n_unico from bus where estadoB!='" + estado + "%'");
-            // Obteniendo el resultado del query
-            rs = ps.executeQuery();
-
-            // check si rs tiene contenido
-            while (rs.next()) {
-                busEspe.addItem(rs.getString("n_unico"));
-
-            }
-
-            ps.close();
-            conexion.close();
-
-        } catch (SQLException e) {
-            System.err.println("ERROR, " + e);
-        }
     }
 
     public void LlenaComboDestino() {
@@ -1068,7 +1041,10 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEncomiendaBuscaActionPerformed
 
     private void btnEncomiendaViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncomiendaViajeActionPerformed
-        // TODO add your handling code here:
+        VistaEncomiendaViaje encoV = new VistaEncomiendaViaje();
+        encoV.setVisible(true);
+        encoV.setLocationRelativeTo(null);
+        encoV.validate();
     }//GEN-LAST:event_btnEncomiendaViajeActionPerformed
 
     private void btnEncomiendaClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncomiendaClienteActionPerformed

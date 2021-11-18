@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import java.sql.Connection;
@@ -13,11 +8,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Admin
- */
-public class VistaEncomiendaCliente extends javax.swing.JFrame {
+public class VistaEncomiendaViaje extends javax.swing.JFrame {
 
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
@@ -26,7 +17,7 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
     ResultSet rs;
     DefaultTableModel modelo = new DefaultTableModel();
 
-    public VistaEncomiendaCliente() {
+    public VistaEncomiendaViaje() {
         initComponents();
         inciamodelotabla();
     }
@@ -39,7 +30,7 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
         modelo.addColumn("PrecioXPeso");
         modelo.addColumn("Lugar salida");
         modelo.addColumn("Lugar destino");
-        tablaEncomi.setModel(modelo);
+        tablaenco.setModel(modelo);
 
     }
 
@@ -65,22 +56,14 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        etiquetaced = new javax.swing.JLabel();
-        cedula = new javax.swing.JTextField();
+        panelPrin = new javax.swing.JPanel();
         btnBuscar = new javax.swing.JButton();
+        viaje = new javax.swing.JTextField();
+        etiquetaced = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaEncomi = new javax.swing.JTable();
+        tablaenco = new javax.swing.JTable();
 
-        setPreferredSize(new java.awt.Dimension(1009, 612));
-
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-
-        etiquetaced.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        etiquetaced.setForeground(new java.awt.Color(0, 0, 0));
-        etiquetaced.setText("Digite la Cedula del cliente a consular: ");
-
-        cedula.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
+        panelPrin.setBackground(new java.awt.Color(204, 204, 204));
 
         btnBuscar.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         btnBuscar.setForeground(new java.awt.Color(0, 0, 0));
@@ -91,36 +74,43 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             }
         });
 
-        tablaEncomi.setModel(modelo);
-        jScrollPane1.setViewportView(tablaEncomi);
+        viaje.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 906, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 66, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(etiquetaced)
-                .addGap(18, 18, 18)
-                .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(159, 159, 159))
+        etiquetaced.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        etiquetaced.setForeground(new java.awt.Color(0, 0, 0));
+        etiquetaced.setText("Digite el id del viaje a consular: ");
+
+        tablaenco.setModel(modelo);
+        jScrollPane1.setViewportView(tablaenco);
+
+        javax.swing.GroupLayout panelPrinLayout = new javax.swing.GroupLayout(panelPrin);
+        panelPrin.setLayout(panelPrinLayout);
+        panelPrinLayout.setHorizontalGroup(
+            panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrinLayout.createSequentialGroup()
+                .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelPrinLayout.createSequentialGroup()
+                        .addGap(87, 87, 87)
+                        .addComponent(etiquetaced)
+                        .addGap(18, 18, 18)
+                        .addComponent(viaje, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(137, 137, 137)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelPrinLayout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 883, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 67, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelPrinLayout.setVerticalGroup(
+            panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPrinLayout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(panelPrinLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(etiquetaced, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viaje, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(69, Short.MAX_VALUE))
         );
 
@@ -128,11 +118,11 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPrin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(panelPrin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -153,17 +143,17 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
             conexion = getConnection();
 
             // indicando que mostrar
-            ps = conexion.prepareStatement("select codigo,Cliente_cedula,para,precioXpeso,lugar_salida,lugar_destino  from encomienda where Cliente_cedula=?");
-            ps.setString(1, cedula.getText());
+            ps = conexion.prepareStatement("select codigo,Cliente_cedula,para,precioXpeso,lugar_salida,lugar_destino  from encomienda where Viaje_idViaje=?");
+            ps.setString(1, viaje.getText());
 
             // Obteniendo el resultado del query
             rs = ps.executeQuery();
 
             if (!rs.next()) {
-                JOptionPane.showMessageDialog(null, "No existe un cliente con ese id");
-                cedula.setText(null);
+                JOptionPane.showMessageDialog(null, "No existe un viaje con esa id");
+                viaje.setText(null);
             }
-
+            
             rs = ps.executeQuery();
             // check si rs tiene contenido
             while (rs.next()) {
@@ -178,6 +168,7 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
         } catch (SQLException e) {
             System.err.println("ERROR, " + e);
         }
+
 
     }//GEN-LAST:event_btnBuscarActionPerformed
 
@@ -195,33 +186,41 @@ public class VistaEncomiendaCliente extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VistaEncomiendaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaEncomiendaViaje.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VistaEncomiendaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaEncomiendaViaje.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VistaEncomiendaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaEncomiendaViaje.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VistaEncomiendaCliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaEncomiendaViaje.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaEncomiendaCliente().setVisible(true);
+                new VistaEncomiendaViaje().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
-    private javax.swing.JTextField cedula;
     private javax.swing.JLabel etiquetaced;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tablaEncomi;
+    private javax.swing.JPanel panelPrin;
+    private javax.swing.JTable tablaenco;
+    private javax.swing.JTextField viaje;
     // End of variables declaration//GEN-END:variables
 }
