@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -16,7 +17,7 @@ public class Vista extends javax.swing.JFrame {
     // NECESARIO PARA PODER CONECTAR A LA BASE
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = "MakI-0*1";
+    public static final String password = "chismosear";//MakI-0*1";
     PreparedStatement ps;
     ResultSet rs;
     SimpleDateFormat formato;
@@ -141,9 +142,8 @@ public class Vista extends javax.swing.JFrame {
                 ps2 = conexion.prepareStatement("select n_ticket"
                         + " from ticket where viaje_idViaje='" + viaje + "'");
                 rs = ps2.executeQuery();
-                while (rs.next()) {
-                    cambiaIcono(rs.getInt("n_ticket"));
-                }
+
+                cambiaIcono(rs);
 
             } else {
                 JOptionPane.showMessageDialog(null, "Este bus no tiene viajes");
@@ -157,28 +157,24 @@ public class Vista extends javax.swing.JFrame {
         }
     }
 
-    public void cambiaIcono(int nTicket) {
-        switch (nTicket) {
-            case 1:
+    public void cambiaIcono(ResultSet rs2) throws SQLException {
+        Icon a = new ImageIcon("src\\imagenes\\seat.png");
+        while (rs2.next()) {
+            
+            if (asiento1.getIcon() == a) {
                 asiento1.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 2:
+            } else if (asiento1.getIcon() == a) {
                 asiento2.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 3:
+            } else if (asiento1.getIcon() == a) {
                 asiento3.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 4:
+            } else if (asiento1.getIcon() == a) {
                 asiento4.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 5:
+            } else if (asiento1.getIcon() == a) {
                 asiento5.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
-            case 6:
+            } else if (asiento1.getIcon() == a) {
                 asiento6.setIcon(new ImageIcon("src\\imagenes\\seat - copia.png"));
-                break;
+            }
         }
-
     }
 
     @SuppressWarnings("unchecked")
