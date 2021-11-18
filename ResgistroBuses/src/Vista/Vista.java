@@ -22,33 +22,6 @@ public class Vista extends javax.swing.JFrame {
         // luego pasar al main
         this.setLocationRelativeTo(null);
         LlenaComboDestino();
-        llenarComboBus();
-    }
-
-    public void llenarComboBus() {
-        com.mysql.jdbc.Connection conexion = null;
-
-        try {
-
-            conexion = getConnection();
-            String estado = "mantenimiento";
-            // indicando que mostrar
-            ps = conexion.prepareStatement("select n_unico from bus where estadoB!='" + estado + "%'");
-            // Obteniendo el resultado del query
-            rs = ps.executeQuery();
-
-            // check si rs tiene contenido
-            while (rs.next()) {
-                busEspe.addItem(rs.getString("n_unico"));
-
-            }
-
-            ps.close();
-            conexion.close();
-
-        } catch (SQLException e) {
-            System.err.println("ERROR, " + e);
-        }
     }
 
     public void LlenaComboDestino() {
