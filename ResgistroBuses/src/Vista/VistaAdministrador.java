@@ -20,7 +20,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
 
     public static final String URL = "jdbc:mysql://localhost:3306/mydb?autoReconnect=true&useSSL=false";
     public static final String usuario = "root";
-    public static final String password = "MakI-0*1";// "chismosear";
+    public static final String password = "chismosear";//"MakI-0*1"; 
     PreparedStatement ps;
     ResultSet rs;
 
@@ -408,7 +408,7 @@ public class VistaAdministrador extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 519, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
