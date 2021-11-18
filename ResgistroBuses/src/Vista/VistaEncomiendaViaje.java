@@ -28,6 +28,8 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
         modelo.addColumn("Ced Emisor");
         modelo.addColumn("Receptor");
         modelo.addColumn("PrecioXPeso");
+        modelo.addColumn("Lugar salida");
+        modelo.addColumn("Lugar destino");
         tablaenco.setModel(modelo);
 
     }
@@ -141,7 +143,7 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
             conexion = getConnection();
 
             // indicando que mostrar
-            ps = conexion.prepareStatement("select codigo,Cliente_cedula,para,precioXpeso from encomienda where Viaje_idViaje=?");
+            ps = conexion.prepareStatement("select codigo,Cliente_cedula,para,precioXpeso,lugar_salida,lugar_destino  from encomienda where Viaje_idViaje=?");
             ps.setString(1, viaje.getText());
 
             // Obteniendo el resultado del query
@@ -156,7 +158,7 @@ public class VistaEncomiendaViaje extends javax.swing.JFrame {
             // check si rs tiene contenido
             while (rs.next()) {
 
-                modelo.addRow(new Object[]{rs.getInt("codigo"), rs.getInt("Cliente_cedula"), rs.getString("para"), rs.getInt("precioXpeso")});
+                modelo.addRow(new Object[]{rs.getInt("codigo"), rs.getInt("Cliente_cedula"), rs.getString("para"), rs.getInt("precioXpeso"), rs.getString("lugar_salida"), rs.getString("lugar_destino")});
 
             }
 
