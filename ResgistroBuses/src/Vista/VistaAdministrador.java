@@ -102,6 +102,8 @@ public class VistaAdministrador extends javax.swing.JFrame {
         botonAgregarChofer = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
 
+        setResizable(false);
+
         jPanel1.setBackground(new java.awt.Color(0, 204, 204));
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
@@ -402,6 +404,19 @@ public class VistaAdministrador extends javax.swing.JFrame {
     private void botonAgregarChoferActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarChoferActionPerformed
         Connection conexion = null;
 
+        if(campoNombreChofer.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if(campoApellidoChofer.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if(campoNumeroChofer.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+
         try {
 
             conexion = conectado.getConnection();
@@ -440,6 +455,18 @@ public class VistaAdministrador extends javax.swing.JFrame {
     private void botonAgregarBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarBusActionPerformed
         Connection conexion = null;
 
+        if(campoPlaca.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if(campoCapacidad.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if(campoCedChofer.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
         try {
 
             conexion = conectado.getConnection();
@@ -479,6 +506,26 @@ public class VistaAdministrador extends javax.swing.JFrame {
     private void botonAgregarViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonAgregarViajeActionPerformed
         Connection conexion = null;
 
+        if(campoSalida.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if(campoDestino.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if(campoTiempo.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if(campoCosto.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if(campoKM.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
         try {
 
             conexion = conectado.getConnection();
