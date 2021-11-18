@@ -40,6 +40,16 @@ public class Vista extends javax.swing.JFrame {
         }
 
     }
+    
+    public void limpiarBus(){
+        Icon a =new ImageIcon("src\\imagenes\\bus.png");
+        BtnBus1.setIcon(a);
+        btnBus2.setIcon(a);
+        btnBus3.setIcon(a);
+        btnBus4.setIcon(a);
+        btnBus5.setIcon(a);
+        btnBus6.setIcon(a);
+    }
 
     public void actualizaTabla(int numeroBus) {
 
@@ -189,7 +199,7 @@ public class Vista extends javax.swing.JFrame {
                 ps2 = conexion.prepareStatement("select n_ticket"
                         + " from ticket where viaje_idViaje='" + viaje + "'");
                 rs = ps2.executeQuery();
-                devolverIconos();
+                
                 cambiaIcono(rs);
 
             } else {
@@ -1139,7 +1149,8 @@ public class Vista extends javax.swing.JFrame {
     private void btnActualizaViajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizaViajeActionPerformed
         Connection conexion = null;
         limpiarT();
-
+        limpiarBus();
+        devolverIconos();
         try {
 
             conexion = conectado.getConnection();
@@ -1336,6 +1347,30 @@ public class Vista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnTicketActionPerformed
 
     private void btnCompraTicketActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompraTicketActionPerformed
+        if (cajaDe.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (cajaPara.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (precio.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (cajasalida.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (cajadestino.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
+        if (viajeEspeci.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Llene todos los espacios");
+            return;
+        }
         java.sql.Connection conexion = null;
         int ced = 0;
         PreparedStatement ps2;
